@@ -6,22 +6,16 @@ import { Card, CardContent } from "@/components/ui/card";
 const About = () => {
   const teamMembers = [
     {
-      name: "Peter Mwangi",
-      role: "Founder & Head Roaster",
-      description: "With over 15 years in the coffee industry, Peter brings passion and expertise to every cup.",
-      image: "/placeholder.svg"
+      name: "Pete Owiti",
+      role: "Founder",
+      description: "With over 15 years in the coffee industry, Pete brings passion and expertise to every cup.",
+      image: "/team/pete.jpg"
     },
     {
-      name: "Sarah Wanjiku",
-      role: "Head Barista - The Curve",
-      description: "Award-winning barista specializing in latte art and specialty brewing techniques.",
-      image: "/placeholder.svg"
-    },
-    {
-      name: "David Kimani",
-      role: "Manager - Bishop Magua",
-      description: "Ensuring exceptional service and memorable experiences for every customer.",
-      image: "/placeholder.svg"
+      name: "Chris Owiti",
+      role: "Co-Founder",
+      description: "Chris's vision and leadership have helped shape Pete's Coffee into a beloved community hub.",
+      image: "/team/chris.jpg"
     }
   ];
 
@@ -63,7 +57,7 @@ const About = () => {
             </div>
             <div className="lg:order-first">
               <img 
-                src="/placeholder.svg" 
+                src="/sites/about.jpg" 
                 alt="Pete's Coffee Interior" 
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />
@@ -139,7 +133,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 max-w-3xl mx-auto">
             {teamMembers.map((member) => (
               <Card key={member.name} className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-8">

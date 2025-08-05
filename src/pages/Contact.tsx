@@ -6,14 +6,16 @@ import { useState } from "react";
 const locations = [
   {
     name: "The Curve",
-    address: "The Curve, Nairobi, Kenya",
+    address: "Westlands, Nairobi",
     description: "Located at The Curve, offering a cozy atmosphere and great views.",
+    hours: "Mon-Sun: 7:00 AM - 10:00 PM",
     map: "https://www.google.com/maps?q=The+Curve+Nairobi&output=embed"
   },
   {
     name: "Bishop Magua",
-    address: "Bishop Magua, Nairobi, Kenya",
+    address: "Ngong Road, Nairobi",
     description: "Find us at Bishop Magua, the perfect spot for coffee lovers in the city.",
+    hours: "Mon-Sun: 8:00 AM - 6:00 PM",
     map: "https://www.google.com/maps?q=Bishop+Magua+Nairobi&output=embed"
   }
 ];
@@ -56,6 +58,10 @@ const Contact = () => {
     <div className="min-h-screen bg-white/80 relative">
       <Navigation />
       <div className="container mx-auto px-4 py-16">
+        <div className="mb-8 text-center">
+          <p className="text-lg text-pete-brown font-semibold">Email: <a href="mailto:info@petescoffee.co.ke" className="underline">info@petescoffee.co.ke</a></p>
+          <p className="text-lg text-pete-brown font-semibold">Tel: <a href="tel:+2540202177453" className="underline">+254 020 217 7453</a></p>
+        </div>
         <h1 className="text-4xl font-bold mb-8 text-pete-brown">Contact Us</h1>
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           {/* Contact Form */}
@@ -94,6 +100,15 @@ const Contact = () => {
             >
               {submitted ? "Message Sent!" : "Send Message"}
             </button>
+            
+            {/* Contact Image */}
+            <div className="mt-6">
+              <img 
+                src="/sites/contact.jpg" 
+                alt="Pete's Coffee Contact" 
+                className="w-full h-64 object-cover rounded-lg shadow-md"
+              />
+            </div>
           </form>
           {/* Locations Map and Description */}
           <div className="space-y-8">
@@ -102,6 +117,7 @@ const Contact = () => {
                 <h3 className="text-xl font-bold text-pete-brown mb-2">{loc.name}</h3>
                 <p className="mb-2 text-gray-700">{loc.description}</p>
                 <p className="mb-2 text-gray-500 text-sm">{loc.address}</p>
+                <p className="mb-2 text-gray-500 text-sm font-semibold">{loc.hours}</p>
                 <div className="w-full h-48 rounded overflow-hidden">
                   <iframe
                     src={loc.map}

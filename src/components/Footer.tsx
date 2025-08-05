@@ -56,15 +56,11 @@ const Footer = () => {
             <div className="space-y-3">
               <p className="text-gray-300 text-sm">
                 <span className="font-semibold">Email:</span><br />
-                catering@petescoffee.co.ke
+                info@petescoffee.co.ke
               </p>
               <p className="text-gray-300 text-sm">
-                <span className="font-semibold">Phone:</span><br />
-                +254 XXX XXX XXX
-              </p>
-              <p className="text-gray-300 text-sm">
-                <span className="font-semibold">Catering:</span><br />
-                Available for events
+                <span className="font-semibold">Tel:</span><br />
+                +254 020 217 7453
               </p>
             </div>
           </div>

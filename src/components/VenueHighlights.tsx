@@ -6,14 +6,14 @@ const VenueHighlights = () => {
     {
       name: "The Curve",
       location: "Westlands, Nairobi",
-      image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=500&h=300&fit=crop&crop=center",
+      image: "/banner/WhatsApp Image 2025-07-15 at 12.30.57_b9a3e6a7.jpg",
       features: ["Spacious Seating", "Wi-Fi Available", "Meeting Rooms", "Outdoor Terrace"],
       description: "Our flagship location offering a premium coffee experience in the heart of Westlands.",
     },
     {
       name: "Bishop Magua",
       location: "Ngong Road, Nairobi",
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=500&h=300&fit=crop&crop=center",
+      image: "/location/magua.jpg",
       features: ["Cozy Atmosphere", "Quick Service", "Takeaway Options", "Fresh Pastries"],
       description: "A warm, intimate setting perfect for your daily coffee ritual and casual meetings.",
     },
