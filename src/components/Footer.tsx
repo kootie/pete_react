@@ -70,6 +70,9 @@ const Footer = () => {
           <p className="text-gray-300 text-sm">
             © {currentYear} Pete's Coffee. All rights reserved.
           </p>
+          <p className="text-gray-500 text-xs mt-2">
+            Admin access: /order-history
+          </p>
         </div>
       </div>
     </footer>

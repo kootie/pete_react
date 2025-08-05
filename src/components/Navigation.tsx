@@ -13,7 +13,6 @@ const Navigation = () => {
     { name: "About", href: "/about" },
     { name: "Menu", href: "/menu" },
     { name: "Events", href: "/events" },
-    { name: "Order History", href: "/order-history" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -30,7 +29,9 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/">
-              <img src="/petes_landing/petesfull.jpg" alt="Pete's Coffee Logo" className="h-20 max-h-20 w-auto object-contain shadow" />
+              <div className="text-2xl font-bold text-[#FFCF01] hover:text-white transition-colors">
+                Pete's Coffee
+              </div>
             </Link>
           </div>
 

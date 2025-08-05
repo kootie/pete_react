@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="coffee" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3A2D07;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A28F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Coffee cup -->
+  <path d="M8 12h12c2.2 0 4 1.8 4 4v4c0 2.2-1.8 4-4 4H8c-2.2 0-4-1.8-4-4v-4c0-2.2 1.8-4 4-4z" fill="url(#coffee)" stroke="#FFCF01" stroke-width="1"/>
+  
+  <!-- Coffee cup handle -->
+  <path d="M20 16c0-1.1-0.9-2-2-2s-2 0.9-2 2 0.9 2 2 2 2-0.9 2-2z" fill="none" stroke="#FFCF01" stroke-width="1.5"/>
+  
+  <!-- Steam -->
+  <path d="M12 8c0-1.1 0.9-2 2-2s2 0.9 2 2" fill="none" stroke="#FFCF01" stroke-width="1" opacity="0.7"/>
+  <path d="M16 6c0-1.1 0.9-2 2-2s2 0.9 2 2" fill="none" stroke="#FFCF01" stroke-width="1" opacity="0.5"/>
+  
+  <!-- P for Pete's -->
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="#FFCF01">P</text>
+</svg> 

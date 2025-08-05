@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 
-const PASSWORD = "petescoffee"; // Simple hardcoded password
+const PASSWORD = "petescoffee2024"; // Admin password for Pete's Coffee
 
 const statusOptions = ["pending", "left kitchen", "on delivery"];
 
@@ -40,7 +40,8 @@ const OrderHistory = () => {
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
         <Navigation />
         <form onSubmit={handleLogin} className="bg-white p-8 rounded shadow-md mt-24">
-          <h2 className="text-2xl font-bold mb-4">Order History Login</h2>
+          <h2 className="text-2xl font-bold mb-4 text-pete-brown">Admin Access</h2>
+          <p className="text-gray-600 mb-4">Enter admin password to view order history</p>
           <input
             type="password"
             className="border rounded px-3 py-2 w-full mb-4"
@@ -58,7 +59,16 @@ const OrderHistory = () => {
     <div className="min-h-screen bg-white/80 relative">
       <Navigation />
       <div className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold mb-8">Order History</h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-4xl font-bold text-pete-brown">Order Management</h1>
+          <Button 
+            onClick={() => setLoggedIn(false)} 
+            variant="outline"
+            className="text-pete-brown border-pete-brown hover:bg-pete-brown hover:text-white"
+          >
+            Logout
+          </Button>
+        </div>
         {orders.length === 0 ? (
           <div className="text-gray-500">No orders found.</div>
         ) : (
