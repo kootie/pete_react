@@ -26,6 +26,9 @@ const Footer = () => {
               <a href="#" className="text-gray-300 hover:text-pete-yellow transition-colors">
                 Twitter
               </a>
+              <a href="/qr-code" className="text-gray-300 hover:text-pete-yellow transition-colors">
+                QR Code
+              </a>
             </div>
           </div>
 
