@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import OrderHistory from "./pages/OrderHistory";
 import Contact from "./pages/Contact";
 import Events from "./pages/Events";
+import QRCode from "./pages/QRCode";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/order-history" element={<OrderHistory />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/qr-code" element={<QRCode />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

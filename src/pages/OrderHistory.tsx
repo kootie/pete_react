@@ -10,6 +10,8 @@ const statusOptions = ["pending", "left kitchen", "on delivery"];
 const OrderHistory = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [password, setPassword] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const ordersPerPage = 10;
   const [orders, setOrders] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("petes_orders") || "[]");
@@ -34,6 +36,12 @@ const OrderHistory = () => {
     setOrders(updated);
     localStorage.setItem("petes_orders", JSON.stringify(updated));
   };
+
+  // Pagination calculations
+  const totalPages = Math.ceil(orders.length / ordersPerPage);
+  const startIndex = (currentPage - 1) * ordersPerPage;
+  const endIndex = startIndex + ordersPerPage;
+  const currentOrders = orders.slice(startIndex, endIndex);
 
   if (!loggedIn) {
     return (
@@ -72,8 +80,12 @@ const OrderHistory = () => {
         {orders.length === 0 ? (
           <div className="text-gray-500">No orders found.</div>
         ) : (
-          <div className="space-y-6">
-            {orders.map((order: any) => (
+          <>
+            <div className="mb-4 text-sm text-gray-600">
+              Showing {startIndex + 1}-{Math.min(endIndex, orders.length)} of {orders.length} orders
+            </div>
+            <div className="space-y-6">
+              {currentOrders.map((order: any) => (
               <div key={order.id} className="bg-white rounded-xl shadow p-6">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                   <div>
@@ -103,7 +115,33 @@ const OrderHistory = () => {
                 </div>
               </div>
             ))}
-          </div>
+            </div>
+            
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center space-x-2 mt-8">
+                <button
+                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                  disabled={currentPage === 1}
+                  className="px-3 py-2 border rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                >
+                  Previous
+                </button>
+                
+                <span className="px-3 py-2 text-sm">
+                  Page {currentPage} of {totalPages}
+                </span>
+                
+                <button
+                  onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                  disabled={currentPage === totalPages}
+                  className="px-3 py-2 border rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
       <Footer />

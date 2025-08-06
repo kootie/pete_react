@@ -29,9 +29,11 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/">
-              <div className="text-2xl font-bold text-[#FFCF01] hover:text-white transition-colors">
-                Pete's Coffee
-              </div>
+              <img 
+                src="/petesfull.jpg" 
+                alt="Pete's Coffee Logo" 
+                className="h-12 w-auto object-contain hover:opacity-90 transition-opacity"
+              />
             </Link>
           </div>
 

@@ -30,27 +30,10 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Send via EmailJS
-    // Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_USER_ID with your actual EmailJS credentials
-    /*
-    emailjs.send(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
-      {
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      },
-      'YOUR_USER_ID'
-    ).then(
-      (result) => {
-        setSubmitted(true);
-      },
-      (error) => {
-        alert('Failed to send message.');
-      }
-    );
-    */
+    // Send email via mailto
+    const subject = "Contact Form Message from Pete's Coffee Website";
+    const body = `Name: ${form.name}\nEmail: ${form.email}\nMessage: ${form.message}`;
+    window.location.href = `mailto:info@petescoffee.co.ke?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
