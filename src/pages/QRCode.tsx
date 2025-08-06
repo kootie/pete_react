@@ -17,7 +17,7 @@ const QRCode = () => {
             width: 300,
             margin: 2,
             color: {
-              dark: '#3A2D07', // Pete's brown
+              dark: '#00A28F', // Pete's teal
               light: '#FFFFFF'
             }
           });
@@ -78,17 +78,17 @@ const QRCode = () => {
                     color: #FFCF01;
                   }
                   .qr-code {
-                    border: 3px solid #3A2D07;
+                    border: 3px solid #00A28F;
                     border-radius: 15px;
                     padding: 20px;
                     background: white;
                     margin: 30px 0;
-                    box-shadow: 0 4px 20px rgba(58, 45, 7, 0.2);
+                    box-shadow: 0 4px 20px rgba(0, 162, 143, 0.2);
                   }
                   .title {
                     font-size: 32px;
                     font-weight: bold;
-                    color: #3A2D07;
+                    color: #00A28F;
                     margin-bottom: 10px;
                   }
                   .subtitle {
@@ -98,7 +98,7 @@ const QRCode = () => {
                   }
                   .instructions {
                     font-size: 16px;
-                    color: #3A2D07;
+                    color: #00A28F;
                     margin-top: 20px;
                     max-width: 400px;
                     line-height: 1.5;
@@ -195,13 +195,13 @@ const QRCode = () => {
           </div>
 
           {/* QR Code */}
-          <div className="bg-white rounded-2xl shadow-2xl p-8 mb-8 border-4 border-pete-brown">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 mb-8 border-4 border-pete-teal">
             <div className="flex justify-center">
               <canvas 
                 id="qr-canvas" 
                 width="300" 
                 height="300"
-                className="border-2 border-pete-brown rounded-lg"
+                className="border-2 border-pete-teal rounded-lg"
               ></canvas>
             </div>
           </div>
@@ -238,7 +238,7 @@ const QRCode = () => {
           <div className="bg-white rounded-xl shadow-lg p-8 text-center">
             <h2 className="text-2xl font-bold text-pete-brown mb-4">Print This Page</h2>
             <p className="text-gray-600 mb-6">
-              Print this page to display in your restaurant or share with customers
+              Print this page to display in your location or share with customers
             </p>
             <button
               id="print-button"
