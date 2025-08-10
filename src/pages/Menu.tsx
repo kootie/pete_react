@@ -49,69 +49,83 @@ const Menu = () => {
         {
           name: "Fruit Platters",
           items: [
-            { name: "Selection of Seasonal Fruits Platter", price: "KES 780", description: "Pineapple/Papaya/Mango/Sweet Melon/Watermelon" },
-            { name: "Assorted Fruit Salad", price: "KES 590", description: "Seasoned varieties of fruits served with vanilla yoghurt, honey and nuts" },
+            { name: "Selection of Seasonal Fruits Platter", price: "KES 800", description: "Pineapple / Papaya / Mango / Sweet Melon / Watermelon" },
+            { name: "Assorted Fruit Salad", price: "KES 650", description: "Seasonal varieties of fruits served with vanilla yoghurt, honey and nuts" },
           ]
         },
         {
-          name: "Egg Dishes",
+          name: "Cereals and Yoghurt",
           items: [
-            { name: "Spanish Omelette", price: "KES 650", description: "2 eggs with tomatoes, onion, green pepper, toast and lyonnaise potatoes" },
-            { name: "Everyday Breakfast", price: "KES 650", description: "Two eggs on toast cooked to your liking, served with baked beans, potatoes (lyonnaise/heaven), sausage and grilled tomato" },
-            { name: "Fried Eggs with Toast", price: "KES 420", description: "2 eggs, fried sunny side up, over easy, medium, or well done, served with toast" },
+            { name: "Cereals and Yoghurt", price: "KES 500", description: "Al Bran / Cornflakes / Coco Puffs / Weetabix / Muesli or Rice Krispies Served with whole or skimmed milk / A choice of plain or fruit yoghurt" },
           ]
         },
         {
-          name: "Breakfast Burritos",
+          name: "From the Breakfast Pan",
           items: [
-            { name: "Egg, Cheese and Steak", price: "KES 750", description: "Homemade tortillas with your choice of filling, served with tomato salsa, sour cream and guacamole" },
-            { name: "Egg, Cheese, Sausage and Macon", price: "KES 850", description: "Homemade tortillas with your choice of filling, served with tomato salsa, sour cream and guacamole" },
-          ]
-        },
-        {
-          name: "Breakfast Croissant",
-          items: [
-            { name: "Breakfast Croissant", price: "KES 950", description: "Macon, cheese, sausage, eggs" },
-          ]
-        },
-        {
-          name: "Chicken Waffle",
-          items: [
-            { name: "Chicken Waffle", price: "KES 950", description: "4 pieces of chicken waffles, 2 poached eggs topped with hollandaise sauce" },
+            { name: "Buttermilk Pancakes", price: "KES 550", description: "Fluffy hot pancakes, made from butter milk served with either honey, maple syrup or chocolate sauce" },
           ]
         },
         {
           name: "Pete's Power Big Breakfast",
           items: [
-            { name: "Pete's Power Big Breakfast", price: "KES 950", description: "2 fried eggs, macon, sausage, pancake, Hash Brown Or Lyonnaise Potatoes. Served with Tea/Coffee" },
+            { name: "Pete's Power Big Breakfast", price: "KES 1200", description: "2 Fried Eggs, Bacon, Sausage, Pancake, Hash Brown OR Lyonnaise Potatoes. Served with Tea / Coffee" },
           ]
         },
         {
-          name: "Pancakes",
+          name: "Strawberry Cream Pancake",
           items: [
-            { name: "Buttermilk Pancakes", price: "KES 550", description: "Fluffy hot pan cakes, made from butter milk served with either honey, maple syrup or chocolate sauce" },
-            { name: "Strawberry Cream Pancake", price: "KES 750", description: "Fresh strawberries pancakes, 2 eggs with a choice of macon or sausage" },
+            { name: "Strawberry Cream Pancake", price: "KES 850", description: "Fresh strawberries pancakes, Harsh Brown potatoes, 2eggs with a choice of bacon or sausage" },
+          ]
+        },
+        {
+          name: "Breakfast Croissant",
+          items: [
+            { name: "Breakfast Croissant", price: "KES 750", description: "Bacon, cheese, sausage, eggs" },
+          ]
+        },
+        {
+          name: "Everyday Breakfast",
+          items: [
+            { name: "Everyday Breakfast", price: "KES 750", description: "With sausages, breakfast potatoes, baked beans, and grilled tomato" },
+          ]
+        },
+        {
+          name: "Plain Pancakes",
+          items: [
+            { name: "Plain Pancakes", price: "KES 550", description: "Classic plain pancakes" },
+          ]
+        },
+        {
+          name: "Homemade Granola",
+          items: [
+            { name: "Homemade Granola", price: "KES 550", description: "Rolled oats, healthy seeds, nuts, served with honey, yoghurt, banana or strawberries" },
+          ]
+        },
+        {
+          name: "Spanish Omelet",
+          items: [
+            { name: "Spanish Omelet", price: "KES 650", description: "2 eggs with tomato, onion, green pepper, toast" },
+          ]
+        },
+        {
+          name: "Fried Eggs",
+          items: [
+            { name: "Fried Eggs", price: "KES 450", description: "2 eggs, fried sunny side up, over easy, medium, or well done, set on toast" },
+          ]
+        },
+        {
+          name: "Breakfast Burritos",
+          items: [
+            { name: "Egg, Cheese, Sausage and Bacon", price: "KES 790", description: "Homemade tortillas with your choice of filling, served with tomato salsa, sour cream and guacamole" },
+            { name: "Egg, Cheese and Steak", price: "KES 850", description: "Homemade tortillas with your choice of filling, served with tomato salsa, sour cream and guacamole" },
           ]
         },
         {
           name: "Breakfast Bagels",
           items: [
-            { name: "Egg, Cheese and Macon", price: "KES 650", description: "A ring-shaped dense bread roll boiled and oven baked" },
-            { name: "Egg Cheese and Sausage", price: "KES 650", description: "A ring-shaped dense bread roll boiled and oven baked" },
-            { name: "Plain Bagel Toasted with Butter", price: "KES 250", description: "A ring-shaped dense bread roll boiled and oven baked" },
-          ]
-        },
-        {
-          name: "Waffles",
-          items: [
-            { name: "Waffles with Ice Cream", price: "KES 750", description: "Delicious waffles served with ice cream" },
-            { name: "Plain Waffles", price: "KES 550", description: "Classic plain waffles" },
-          ]
-        },
-        {
-          name: "Other Breakfast",
-          items: [
-            { name: "Homemade Granola", price: "KES 550", description: "Fresh homemade granola" },
+            { name: "Egg, Cheese and Bacon Bagel Toasted with Butter", price: "KES 700", description: "A ring-shaped dense bread roll boiled and oven baked" },
+            { name: "Egg, Cheese and Sausage", price: "KES 670", description: "A ring-shaped dense bread roll boiled and oven baked" },
+            { name: "Plain Bagel Toasted with Butter", price: "KES 300", description: "A ring-shaped dense bread roll boiled and oven baked" },
           ]
         },
       ]
@@ -122,21 +136,8 @@ const Menu = () => {
         {
           name: "Fresh Salads",
           items: [
-            { name: "Greek Salad", price: "KES 850", description: "A classical healthy salad of aromatic tomatoes, cucumber, sweet peppers, onions, lettuce, black olives, feta cheese, oregano and capers vinaigrette" },
-            { name: "Classic Chicken Caesar Salad", price: "KES 890", description: "Lettuce, parmesan cheese, croutons and anchovy garlic dressing with chicken toppings" },
-            { name: "House Garden Salad", price: "KES 550", description: "Avocado lettuce tomatoes, cucumber, beetroot, carrots and vinaigrette dressing" },
-          ]
-        },
-      ]
-    },
-    wraps: {
-      title: "Wraps & Rolex",
-      subcategories: [
-        {
-          name: "Wraps & Rolex",
-          items: [
-            { name: "Pete's Rolex", price: "KES 500", description: "A combination of eggs sausage tomato and onion. Served in a warm tortilla or chapati and guacamole on the side" },
-            { name: "A Vegetarian Wrap", price: "KES 450", description: "Mixed spring vegetable Julienne(s), sautéed with soy, olive and sesame oil, wrapped in homemade tortilla" },
+            { name: "Classic Chicken Caesar Salad", price: "KES 890", description: "Lettuce, parmesan cheese, croutons, and anchovy garlic dressing with chicken toppings" },
+            { name: "House Garden Salad", price: "KES 600", description: "Avocado, lettuce, tomatoes, cucumber, beetroot, carrots, and vinaigrette dressing" },
           ]
         },
       ]
@@ -147,11 +148,7 @@ const Menu = () => {
         {
           name: "Hot Soups",
           items: [
-            { name: "Butternut Soup", price: "KES 450", description: "A creamy textured squash soup with an excellent flavor from the best ingredients" },
-            { name: "Coconut Beans", price: "KES 680", description: "Flavourful yellow beans cooked by incorporating coconut puree" },
-            { name: "Forest Mushroom Soup", price: "KES 500", description: "Flavored with chopped Coriander" },
-            { name: "Chinese Chicken & Noodle Soup", price: "KES 550", description: "A traditional Chinese soup with a touch of sweetcorn" },
-            { name: "Soup of the Day", price: "KES 450", description: "Chef's special soup. All served with bread and butter" },
+            { name: "Soup of the Day (Chef's Special Soup)", price: "KES 450", description: "All served with bread and butter" },
           ]
         },
       ]
@@ -160,111 +157,144 @@ const Menu = () => {
       title: "Main Courses",
       subcategories: [
         {
-          name: "From the Waters",
+          name: "From the Ocean, Lakes and Rivers",
           items: [
-            { name: "Pan Fried Fillet of Lake Tilapia", price: "KES 1300", description: "Grilled fish fillet, served with lemon and capers butter sauce" },
-            { name: "Panko Fried Fish", price: "KES 1190", description: "Breaded fried fish fillet, served with tartar sauce and steamed vegetables" },
-            { name: "Wet Fry Tilapia", price: "KES 1090", description: "Fresh tilapia prepared wet fry style" },
-            { name: "Dry Fry Tilapia", price: "KES 1090", description: "Fresh tilapia prepared dry fry style" },
-            { name: "Coconut Stewed Victoria Fish", price: "KES 1090", description: "Fresh from Lake Victoria, deep fried and stewed in coconut sauce" },
+            { name: "Pan Fried Fillet of Lake Tilapia", price: "KES 1350", description: "Fillet of fish grilled and served with lemon and capers butter sauce" },
+            { name: "Coconut Stewed Victoria Fish", price: "KES 1490", description: "Fresh from Lake Victoria, deep fried and stewed in coconut sauce" },
+          ]
+        },
+        {
+          name: "Steaks and Grills",
+          items: [
+            { name: "Beef Fillet Steak", price: "KES 1400", description: "Tender fillet of beef, marinated with french herbs, and grilled to your perfection, served with Black peppercorn sauce" },
+            { name: "Sirloin Steak", price: "KES 1490", description: "New York strip, marinated and grilled to your liking, served with Black peppercorn sauce" },
+            { name: "Mixed Grill", price: "KES 1490", description: "Lamb chops, beef medallion, chicken drum stick and beef boerewors" },
           ]
         },
         {
           name: "Lamb",
           items: [
-            { name: "Balsamic Honey Glazed Lamb Ribs", price: "KES 1300", description: "Prime ribs of lamb, flavored and tenderized in more poix, lightly grilled and finished with honey-balsamic mix" },
-            { name: "Lamb Chops", price: "KES 1350", description: "Prime lamb chops, honey glazed and served in a tangy sweet and sour sauce" },
+            { name: "Balsamic Honey Glazed Lamb Ribs", price: "KES 1400", description: "Prime ribs of Lamb, flavored and tenderized in more poix, lightly grilled and finished with Honey-balsamic mix" },
+          ]
+        },
+        {
+          name: "Beef Stroganoff",
+          items: [
+            { name: "Beef Stroganoff", price: "KES 1300", description: "Slow cooked Ugandan beef in velvet mushroom finished with cream" },
           ]
         },
         {
           name: "Pete's Signature Platters",
           items: [
-            { name: "Platter for 2", price: "KES 3100", description: "Consisting of a portion each, of rosemary chicken, lamb ribs, Beef fillet, 2 Pcs of Choma sausage" },
-            { name: "Platter for 4", price: "KES 6200", description: "Consisting of a portion each, of rosemary chicken, lamb ribs, Beef fillet, 2 Pcs of Choma sausage" },
-          ]
-        },
-        {
-          name: "Steaks & Grills",
-          items: [
-            { name: "Sirloin Steak", price: "KES 1490", description: "New York strip, marinated and grilled to your liking, served with black peppercorn sauce" },
-            { name: "Sweet and Sour Beef Ribs", price: "KES 1450", description: "Beef ribs flavored in its stock, lightly grilled, Honey glazed, served in a tangy sweet and sour sauce" },
-            { name: "Mixed Grill", price: "KES 1490", description: "Lamb chops, beef medallion, chicken drum stick and beef boerewors" },
-            { name: "Beef Fillet Steak", price: "KES 1300", description: "Tender fillet of beef, marinated with French herbs, and grilled to your perfection, served with Black peppercorn sauce" },
-            { name: "Beef Stroganoff", price: "KES 1090", description: "Slow cooked Ugandan beef in velvet mushroom finished with cream" },
-          ]
-        },
-        {
-          name: "Indian",
-          items: [
-            { name: "Chicken Curry", price: "KES 1250", description: "Boneless chicken, marinated in Indian spices, char grilled in tandoori and simmered in curry sauce" },
-            { name: "Butter Chicken", price: "KES 1300", description: "Barbequed Boneless Chicken pieces cooked in our special tomato and cashew nut sauce, blended with various spices" },
-            { name: "Fish Curry", price: "KES 1300", description: "Fillet of fish, marinated in Indian spices, char grilled in tandoori and simmered in curry sauce" },
+            { name: "Platter for 2", price: "KES 3100", description: "The ultimate choice for a family or friends having a meal together. Hearty selections of grilled Beef fillet, Rosemary Chicken, Lamb ribs and Choma sausage, sauteed in onions, garlic and tomatoes, served with BBQ sauce, vegetables and accompaniments of your choice" },
+            { name: "Platter for 4", price: "KES 6200", description: "Consisting of 2 portions each, of rosemary chicken, lamb ribs, Beef fillet, 4 Pcs of Choma sausage" },
           ]
         },
         {
           name: "Chicken",
           items: [
-            { name: "Grilled Chicken Breast Moroccan Style", price: "KES 1300", description: "Combination of sweet and tangy flavors from North Africa" },
-            { name: "Kienyeji Chicken Half", price: "KES 1290", description: "Home made kienyeji chicken, slow cooked, served with creamy spinach and brown ugali" },
-            { name: "Kienyeji Chicken Full", price: "KES 2500", description: "Home made kienyeji chicken, slow cooked, served with creamy spinach and brown ugali" },
-            { name: "Chicken Kastu", price: "KES 1290", description: "Crispy coated Japanese chicken breast, served with slow cooked coconut vegetable rice, side of avocado then garnished with black sesame seeds" },
-            { name: "Chicken Cordon Bleu", price: "KES 1290", description: "French chicken breast, filled with cheese and spinach, rolled up, breaded then baked" },
-            { name: "Southern Fried Chicken", price: "KES 1200", description: "A Scottish styled chicken, marinated in salt, pepper and garlic, battered and deep fried" },
+            { name: "Grilled Chicken Breast (Moroccan Style)", price: "KES 1500", description: "Combination of sweet and tangy flavors from North Africa" },
+            { name: "Southern Fried Chicken", price: "KES 1350", description: "A Scottish styled chicken, marinated in salt, pepper and garlic, battered and deep fried" },
+            { name: "Grilled Lemon Chicken", price: "KES 1350", description: "A Special Cut of Chicken Breast, in Lemon and Mushroom Sauce" },
+          ]
+        },
+        {
+          name: "Indian Specialities",
+          items: [
+            { name: "Butter Chicken", price: "KES 1400", description: "Barbequed Boneless Chicken pieces cooked in our special tomato and cashew nut sauce, blended with various spices" },
+            { name: "Chicken Curry", price: "KES 1300", description: "Boneless chicken, marinated in Indian spices, char-grilled in tandoori and simmered in curry sauce" },
+            { name: "Fish Curry", price: "KES 1350", description: "Fillet of fish, marinated in Indian spices, char-grilled in tandoori and simmered in curry sauce" },
           ]
         },
         {
           name: "Vegetarian",
           items: [
-            { name: "Mixed Vegetable Curry", price: "KES 900", description: "A rich creamy curry dish of potatoes, carrots, cauliflower and garden peas" },
+            { name: "Mixed Vegetable Curry", price: "KES 1000", description: "A rich creamy curry dish of potatoes, carrots, cauliflower and garden peas" },
           ]
         },
         {
           name: "Oriental Stir Frys",
           items: [
-            { name: "Chicken Stir Fry", price: "KES 1100", description: "Julienne of chicken fried with garlic, onions, bell pepper, carrots and ginger finished with Soy Sauce and Oyster sauce" },
-            { name: "Beef Stir Fry", price: "KES 1090", description: "Julienne of beef fried with garlic, onions, bell pepper, carrots and ginger finished with Soy Sauce and Oyster sauce" },
-            { name: "Fish Stir Fry", price: "KES 1250", description: "Julienne of fish fried with garlic, onions, bell pepper, carrots and ginger finished with Soy Sauce and Oyster sauce" },
+            { name: "Beef Stir Fry", price: "KES 1390", description: "Julienne of beef fried with garlic, onions, bell pepper, carrots and ginger, finished with Soy Sauce and Oyster sauce" },
+            { name: "Chicken Stir Fry", price: "KES 1350", description: "Julienne of chicken fried with garlic, onions, bell pepper, carrots and ginger, finished with Soy Sauce and Oyster sauce" },
+            { name: "Fish Stir Fry", price: "KES 1490", description: "Julienne of fish fried with garlic, onions, bell pepper, carrots and ginger, finished with Soy Sauce and Oyster sauce" },
+          ]
+        },
+        {
+          name: "Italian Kitchen",
+          items: [
+            { name: "Alla Cabonara", price: "KES 1150", description: "Cooked al-dente, blended with egg yolks, cheese, and smoked bacon in creamy sauce" },
+            { name: "Bolognaise", price: "KES 1050", description: "Traditional lean minced beef cooked in tomato sauce and Italian herbs" },
+          ]
+        },
+        {
+          name: "Mexican Specialities",
+          items: [
+            { name: "Beef Burrito", price: "KES 1000", description: "Homemade tortillas with a filling of beef, cheese, salsa, sour cream and guacamole, served with black beans and ciliantro rice or Spanish rice" },
+            { name: "Chicken Burrito", price: "KES 1000", description: "Homemade tortillas with a filling of chicken, cheese, salsa, sour cream and guacamole, served with black beans and ciliantro rice or Spanish rice" },
+            { name: "Bean and Mixed Veg Burrito", price: "KES 790", description: "Homemade tortillas with a filling of mixed vegetables, cheese, salsa, sour cream and guacamole, served with black beans and ciliantro rice or Spanish rice" },
           ]
         },
         {
           name: "Quesadillas",
           items: [
-            { name: "Chicken Quesadilla", price: "KES 950", description: "Cubes of chicken, with grated cheese, guacamole, salsa wrapped in a warm tortilla" },
-            { name: "Spinach and Cheese Quesadilla", price: "KES 790", description: "Spiced spinach, with grated cheese, guacamole, salsa wrapped in a warm tortilla" },
-            { name: "Beef Quesadilla", price: "KES 850", description: "Cubes of beef, with grated cheese, guacamole, salsa wrapped in a warm tortilla" },
-          ]
-        },
-        {
-          name: "Mexican",
-          items: [
-            { name: "Beef Burrito", price: "KES 930", description: "Homemade tortillas with a filling of beef, cheese, salsa, sour cream and guacamole. Served with black beans and cilantro rice or Spanish rice" },
-            { name: "Chicken Burrito", price: "KES 930", description: "Homemade tortillas with a filling of chicken, cheese, salsa, sour cream and guacamole. Served with black beans and cilantro rice or Spanish rice" },
-            { name: "Bean and Mixed Veg. Burrito", price: "KES 750", description: "Homemade tortillas with a filling of mixed vegetables, cheese, salsa, sour cream and guacamole. Served with black beans and cilantro rice or Spanish rice" },
-          ]
-        },
-        {
-          name: "Italian",
-          items: [
-            { name: "Alla Cabonara", price: "KES 1090", description: "Cooked al-dente, blended with egg yolks, cheese, and smoked bacon in creamy sauce" },
-            { name: "Chicken Aglio, Olio", price: "KES 1090", description: "Boneless chicken, tossed in garlic, olive oil and chilies, with your choice of pasta. Reputed to be a Cure for your cravings" },
-            { name: "Bolognaise", price: "KES 990", description: "Traditional lean minced beef cooked in tomato sauce and Italian herbs" },
+            { name: "Spinach and Cheese Quesadilla", price: "KES 790", description: "Spiced spinach, with gratinated cheese, guacamole, salsa wrapped in a warm tortilla" },
+            { name: "Beef Quesadilla", price: "KES 890", description: "Cubes of beef, with gratinated cheese, guacamole, salsa wrapped in a warm tortilla" },
+            { name: "Chicken Quesadilla", price: "KES 860", description: "Cubes of chicken, with gratinated cheese, guacamole, salsa wrapped in a warm tortilla" },
           ]
         },
         {
           name: "Tacos",
           items: [
-            { name: "Chicken Tacos", price: "KES 950", description: "Chicken strips sautéed in Mexican spices, folded in a tortilla with cheese, salsa, guacamole and sour cream" },
-            { name: "Beef Tacos", price: "KES 850", description: "Pulled Beef flakes sautéed in Mexican spices, folded in a tortilla with cheese, salsa, guacamole and sour cream" },
-            { name: "Fish Tacos", price: "KES 950", description: "Fish strips sautéed in Mexican spices, folded in a tortilla with cheese, salsa, guacamole and sour cream" },
+            { name: "Beef Tacos", price: "KES 800", description: "Beef flakes sautéed in Mexican spices, folded in a tortilla with cheese, salsa, guacamole and sour cream" },
+            { name: "Fish Tacos", price: "KES 850", description: "Fish strips sautéed in Mexican spices, folded in a tortilla with cheese, salsa, guacamole and sour cream" },
+            { name: "Chicken Tacos", price: "KES 800", description: "Chicken strips sautéed in Mexican spices, folded in a tortilla with cheese, salsa, guacamole and sour cream" },
             { name: "Veggie Tacos", price: "KES 790", description: "Mixed vegetable juliennes sautéed in Mexican spices, folded in a tortilla with cheese, salsa, guacamole and sour cream" },
           ]
         },
         {
-          name: "Biryani",
+          name: "Biryani Corner",
           items: [
-            { name: "Chicken Biryani", price: "KES 1090", description: "Mixed rice dish made with rice, chicken and a combination of herbs and spices" },
-            { name: "Mutton Biryani", price: "KES 1090", description: "Mixed rice dish made with rice, mutton and a combination of herbs and spices" },
-            { name: "Beef Biryani", price: "KES 1050", description: "Mixed rice dish made with rice, beef and a combination of herbs and spices" },
+            { name: "Chicken Biryani", price: "KES 1300", description: "Basmati rice and chicken, cooked with various spices" },
+            { name: "Mutton Biryani", price: "KES 1300", description: "Basmati rice and mutton, cooked with various spices" },
+            { name: "Beef Biryani", price: "KES 1300", description: "Basmati rice and beef, cooked with various spices" },
+          ]
+        },
+        {
+          name: "Pizza Special",
+          items: [
+            { name: "Pete's Pizza", price: "KES 1350", description: "Pizza base sauce, mushrooms, capsicum, bacon, and mozzarella cheese" },
+            { name: "Chicken Tikka", price: "KES 1300", description: "Pizza base sauce, peppers, onions, tikka sauce, boneless chicken, and mozzarella cheese" },
+            { name: "Hawaiian Pizza", price: "KES 1200", description: "Pizza base sauce, ham, pineapple, and mozzarella cheese" },
+            { name: "Margherita Pizza", price: "KES 1000", description: "Pizza base sauce, oregano, basil, and mozzarella cheese" },
+            { name: "Choma Pizza", price: "KES 1400", description: "Pizza base sauce, roasted tender beef flakes, topped with classic kachumbari and mozzarella cheese" },
+            { name: "Chicken BBQ Pizza", price: "KES 1300", description: "Pizza base sauce, chicken, sweet peppers, onions, and mozzarella cheese" },
+          ]
+        },
+      ]
+    },
+    snacks: {
+      title: "Snacks Corner",
+      subcategories: [
+        {
+          name: "Sandwiches",
+          items: [
+            { name: "The Club Sandwich", price: "KES 1200", description: "Filled with chicken, beef/bacon, fried egg, tomatoes, cucumbers, lettuce and Mayo" },
+            { name: "A Delicious Chicken or Beef Burger", price: "KES 990", description: "Chicken fillet, beef pate, veg pate, spread with mayonnaise; plain or topped with either Cheese, Bacon, Egg or Guacamole" },
+            { name: "Toasted Chicken and Chedder Cheese Sandwich", price: "KES 890", description: "Filled with organic lettuce, chicken, chedder cheese and Mayo" },
+            { name: "Beef Sandwich", price: "KES 890", description: "Filled with organic lettuce and-Grilled Steak and mustard" },
+            { name: "Veggie Sandwich", price: "KES 650", description: "Filled with organic lettuce, onions, cucumber, tomatoes and Mayo" },
+            { name: "Bacon, Lettuce and Tomato", price: "KES 650", description: "Bacon, lettuce and tomato" },
+          ]
+        },
+        {
+          name: "Other Snacks",
+          items: [
+            { name: "Barbeque Chicken Wings", price: "KES 950", description: "Half a dozen of mouthwatering spicy chicken wings sautéed in barbeque sauce" },
+            { name: "Meat Samosa", price: "KES 450", description: "3 pieces of beef wrapped in filo pastry served with sweet Chilli and a lemon wedge" },
+            { name: "Hot Dogs", price: "KES 400", description: "Classic hot dogs" },
+            { name: "Choma Sausage (2)", price: "KES 400", description: "Two pieces of choma sausage" },
+            { name: "Chips and Sausage", price: "KES 600", description: "French fries served with sausages" },
           ]
         },
       ]
@@ -275,26 +305,22 @@ const Menu = () => {
         {
           name: "Side Orders",
           items: [
-            { name: "Macon", price: "KES 270", description: "Crispy bacon" },
-            { name: "Cheese", price: "KES 200", description: "Fresh cheese" },
-            { name: "Nachos", price: "KES 450", description: "Crispy nachos" },
             { name: "Chapati", price: "KES 100", description: "Fresh chapati" },
-            { name: "Plantains", price: "KES 350", description: "Fried plantains" },
-            { name: "Plain Rice", price: "KES 300", description: "Steamed rice" },
-            { name: "2 Sausages", price: "KES 260", description: "Two sausages" },
-            { name: "Guacamole", price: "KES 120", description: "Fresh guacamole" },
-            { name: "3 Piece Samosa", price: "KES 380", description: "Three samosas" },
-            { name: "Mayonnaise", price: "KES 170", description: "Fresh mayonnaise" },
-            { name: "Plain Toast", price: "KES 150", description: "Toasted bread" },
-            { name: "Sour Cream", price: "KES 100", description: "Fresh sour cream" },
+            { name: "Chips Masala", price: "KES 400", description: "Spiced chips" },
             { name: "French Fries", price: "KES 250", description: "Crispy french fries" },
-            { name: "Avocado Fan", price: "KES 150", description: "Fresh avocado" },
-            { name: "Chips Masala", price: "KES 380", description: "Spiced chips" },
+            { name: "Mayonnaise", price: "KES 170", description: "Fresh mayonnaise" },
+            { name: "2 Sausages", price: "KES 260", description: "Two sausages" },
             { name: "French Toast", price: "KES 350", description: "French toast" },
-            { name: "Mashed Potatoes", price: "KES 100", description: "Creamy mashed potatoes" },
-            { name: "Lyonnaise Potatoes", price: "KES 300", description: "Lyonnaise style potatoes" },
-            { name: "Vegetable Fried Rice", price: "KES 100", description: "Vegetable fried rice" },
-            { name: "Ugali Brown/White", price: "KES 100", description: "Traditional ugali" },
+            { name: "Plain Toast", price: "KES 150", description: "Toasted bread" },
+            { name: "Plain Rice", price: "KES 300", description: "Steamed rice" },
+            { name: "Guacamole", price: "KES 120", description: "Fresh guacamole" },
+            { name: "Lyonnaise Potatoes", price: "KES 350", description: "Lyonnaise style potatoes" },
+            { name: "Plantains", price: "KES 350", description: "Fried plantains" },
+            { name: "Bacon", price: "KES 270", description: "Crispy bacon" },
+            { name: "Cheese", price: "KES 200", description: "Fresh cheese" },
+            { name: "Nachos", price: "KES 300", description: "Crispy nachos" },
+            { name: "Sour Cream", price: "KES 100", description: "Fresh sour cream" },
+            { name: "Avocado Flan", price: "KES 150", description: "Fresh avocado" },
           ]
         },
       ]
@@ -305,139 +331,125 @@ const Menu = () => {
         {
           name: "Coffee",
           items: [
-            { name: "Popcorn Latte Single", price: "KES 320", description: "Espresso, steamed milk and little smooth froth, finished with popcorn syrup" },
-            { name: "Popcorn Latte Double", price: "KES 360", description: "Espresso, steamed milk and little smooth froth, finished with popcorn syrup" },
-            { name: "Espresso Single", price: "KES 130", description: "Shot of round strong flavorful coffee with a sweet after taste" },
-            { name: "Espresso Double", price: "KES 190", description: "Shot of round strong flavorful coffee with a sweet after taste" },
-            { name: "House Coffee", price: "KES 250", description: "Black coffee with a balanced taste and flavor" },
-            { name: "Latte Machiato Single", price: "KES 220", description: "An exciting delicious multi-layered drink of espresso and milk" },
-            { name: "Latte Machiato Double", price: "KES 260", description: "An exciting delicious multi-layered drink of espresso and milk" },
-            { name: "Hazelnut Cappuccino Single", price: "KES 320", description: "A nutty sweet coffee drink" },
-            { name: "Hazelnut Cappuccino Double", price: "KES 360", description: "A nutty sweet coffee drink" },
-            { name: "Oreo Chocolate Latte Single", price: "KES 320", description: "Our signature espresso made with steamed milk and topped with micro foam, white chocolate, crumbled oreos, whipped cream & chocolate drizzle" },
-            { name: "Oreo Chocolate Latte Double", price: "KES 360", description: "Our signature espresso made with steamed milk and topped with micro foam, white chocolate, crumbled oreos, whipped cream & chocolate drizzle" },
-            { name: "Caramel Macchiato Single", price: "KES 320", description: "A delicious multi layered drink of espresso, steamed milk and dense foam finished with caramel syrup" },
-            { name: "Caramel Macchiato Double", price: "KES 360", description: "A delicious multi layered drink of espresso, steamed milk and dense foam finished with caramel syrup" },
-            { name: "Americano Single", price: "KES 200", description: "Hot water topped with double shot espresso" },
-            { name: "Americano Double", price: "KES 250", description: "Hot water topped with double shot espresso" },
-            { name: "Cafe Latte Single", price: "KES 280", description: "Espresso, steamed milk, and little smooth froth" },
-            { name: "Cafe Latte Double", price: "KES 320", description: "Espresso, steamed milk, and little smooth froth" },
-            { name: "Cappuccino Single", price: "KES 250", description: "Harmonious balanced cup of sweet rich milk and espresso" },
-            { name: "Cappuccino Double", price: "KES 300", description: "Harmonious balanced cup of sweet rich milk and espresso" },
-            { name: "Spiced Vanilla Latte Single", price: "KES 320", description: "Espresso, steamed milk, vanilla syrup and ginger spice" },
-            { name: "Spiced Vanilla Latte Double", price: "KES 360", description: "Espresso, steamed milk, vanilla syrup and ginger spice" },
-            { name: "Cafe Mocha Single", price: "KES 300", description: "Espresso, steamed milk, chocolate and little froth" },
-            { name: "Cafe Mocha Double", price: "KES 350", description: "Espresso, steamed milk, chocolate and little froth" },
+            { name: "Single Espresso", price: "KES 170", description: "Shot of round strong and flavorful coffee with a sweet after taste" },
+            { name: "Double Espresso", price: "KES 230", description: "Double shot of round strong and flavorful coffee with a sweet after taste" },
+            { name: "Single House Coffee", price: "KES 200", description: "Black coffee with a balanced taste and flavor" },
+            { name: "Double House Coffee", price: "KES 250", description: "Double black coffee with a balanced taste and flavor" },
+            { name: "Cappuccino", price: "KES 250", description: "Harmonious balanced cup of sweet rich milk and espresso" },
+            { name: "Double Cappuccino", price: "KES 300", description: "Double harmonious balanced cup of sweet rich milk and espresso" },
+            { name: "Hazelnut Cappuccino", price: "KES 420", description: "A nutty sweet coffee drink" },
+            { name: "Double Hazelnut Cappuccino", price: "KES 480", description: "Double nutty sweet coffee drink" },
+            { name: "Espresso Macchiato", price: "KES 200", description: "An exciting delicious multi-layered drink of espresso and milk" },
+            { name: "Double Espresso Macchiato", price: "KES 250", description: "Double exciting delicious multi-layered drink of espresso and milk" },
+            { name: "Spiced Vanilla Latte", price: "KES 420", description: "Espresso, steamed milk, vanilla syrup and ginger spice" },
+            { name: "Double Spiced Vanilla Latte", price: "KES 480", description: "Double espresso, steamed milk, vanilla syrup and ginger spice" },
+            { name: "Café Mocha", price: "KES 300", description: "Espresso, steamed milk, chocolate and little froth" },
+            { name: "Double Café Mocha", price: "KES 380", description: "Double espresso, steamed milk, chocolate and little froth" },
+            { name: "Café Latte", price: "KES 280", description: "Espresso, steamed milk and little smooth froth" },
+            { name: "Double Café Latte", price: "KES 320", description: "Double espresso, steamed milk and little smooth froth" },
+            { name: "Popcorn Latte", price: "KES 320", description: "Espresso, steamed milk and little smooth froth, finished with popcorn syrup" },
+            { name: "Double Popcorn Latte", price: "KES 480", description: "Double espresso, steamed milk and little smooth froth, finished with popcorn syrup" },
+            { name: "Café Americano", price: "KES 180", description: "Hot water topped with double shot espresso" },
+            { name: "Double Café Americano", price: "KES 230", description: "Hot water topped with double shot espresso" },
+          ]
+        },
+        {
+          name: "Iced Coffees",
+          items: [
+            { name: "Iced Americano", price: "KES 350", description: "Iced coffee with or without milk" },
+            { name: "Iced Latte", price: "KES 350", description: "Iced latte with or without milk" },
+            { name: "Iced Mocha", price: "KES 380", description: "Iced mocha with or without milk" },
+            { name: "Iced Coffee", price: "KES 350", description: "Iced coffee with or without milk" },
+            { name: "Iced Cappuccino", price: "KES 350", description: "Iced cappuccino with or without milk" },
+            { name: "Iced Flavoured Latte", price: "KES 480", description: "Iced flavoured latte with or without milk" },
           ]
         },
         {
           name: "Classic Teas",
           items: [
-            { name: "African Tea Single", price: "KES 200", description: "Milk and tea boiled on the African jiko" },
-            { name: "African Tea Double", price: "KES 250", description: "Milk and tea boiled on the African jiko" },
-            { name: "English Tea Single", price: "KES 200", description: "Hot water, served with milk and tea bag a side" },
-            { name: "English Tea Double", price: "KES 250", description: "Hot water, served with milk and tea bag a side" },
-            { name: "Chai Latte Single", price: "KES 300", description: "Semi sweet, spicy tea combined with steamed milk" },
-            { name: "Chai Latte Double", price: "KES 350", description: "Semi sweet, spicy tea combined with steamed milk" },
-            { name: "Herbal Teas Single", price: "KES 230", description: "Pepper mint, chamomile, green tea, raspberry, Hibiscus" },
-            { name: "Herbal Teas Double", price: "KES 260", description: "Pepper mint, chamomile, green tea, raspberry, Hibiscus" },
-            { name: "Lemon Tea Single", price: "KES 300", description: "Black tea with a hint of lemon juice" },
-            { name: "Lemon Tea Double", price: "KES 350", description: "Black tea with a hint of lemon juice" },
+            { name: "Single African Tea", price: "KES 200", description: "Milk and tea boiled on the African jiko" },
+            { name: "Double African Tea", price: "KES 230", description: "Double milk and tea boiled on the African jiko" },
+            { name: "Single English Tea", price: "KES 200", description: "Hot water, served with milk and tea bag a side" },
+            { name: "Double English Tea", price: "KES 250", description: "Double hot water, served with milk and tea bag a side" },
+            { name: "Single Herbal Teas", price: "KES 250", description: "Pepper mint, chamomile, green tea, raspberry, Hibiscus" },
+            { name: "Double Herbal Teas", price: "KES 300", description: "Double pepper mint, chamomile, green tea, raspberry, Hibiscus" },
           ]
         },
         {
-          name: "Special Teas",
+          name: "Special Teas & Drinks",
           items: [
-            { name: "Orange and Turmeric Dawa Single", price: "KES 280", description: "Lemon, honey, ginger, turmeric & orange" },
-            { name: "Orange and Turmeric Dawa Double", price: "KES 320", description: "Lemon, honey, ginger, turmeric & orange" },
-            { name: "Turmeric Dawa Single", price: "KES 250", description: "Lemon honey, ginger turmeric" },
-            { name: "Turmeric Dawa Double", price: "KES 300", description: "Lemon honey, ginger turmeric" },
-            { name: "Classic Dawa Single", price: "KES 250", description: "Lemon, Honey and Ginger boiled together" },
-            { name: "Classic Dawa Double", price: "KES 300", description: "Lemon, Honey and Ginger boiled together" },
-            { name: "Cinnamon Dawa Single", price: "KES 250", description: "Lemon, honey, ginger & cinnamon" },
-            { name: "Cinnamon Dawa Double", price: "KES 300", description: "Lemon, honey, ginger & cinnamon" },
-          ]
-        },
-        {
-          name: "Iced Drinks",
-          items: [
-            { name: "Iced Flavoured Tea Double", price: "KES 350", description: "Ice cubes, mineral water, and your choice of herbal tea" },
-            { name: "Iced Lemon and Ginger (Dawa) Double", price: "KES 350", description: "Ice cubes, mineral water, ginger and honey" },
-          ]
-        },
-        {
-          name: "Juices",
-          items: [
-            { name: "Mango Minty Pinead Single", price: "KES 300", description: "Fresh mango and pineapple juice" },
-            { name: "Mango Minty Pinead Double", price: "KES 400", description: "Fresh mango and pineapple juice" },
-            { name: "Watermelon Single", price: "KES 280", description: "Fresh watermelon juice" },
-            { name: "Watermelon Double", price: "KES 380", description: "Fresh watermelon juice" },
-            { name: "Orange Single", price: "KES 280", description: "Fresh orange juice" },
-            { name: "Orange Double", price: "KES 380", description: "Fresh orange juice" },
-            { name: "Papaya Single", price: "KES 280", description: "Fresh papaya juice" },
-            { name: "Papaya Double", price: "KES 380", description: "Fresh papaya juice" },
-            { name: "Mango Single", price: "KES 280", description: "Fresh mango juice" },
-            { name: "Mango Double", price: "KES 380", description: "Fresh mango juice" },
-            { name: "Passion Single", price: "KES 280", description: "Fresh passion juice" },
-            { name: "Passion Double", price: "KES 380", description: "Fresh passion juice" },
-            { name: "Pineapple Single", price: "KES 280", description: "Fresh pineapple juice" },
-            { name: "Pineapple Double", price: "KES 380", description: "Fresh pineapple juice" },
-            { name: "Fresh Lemonade Single", price: "KES 280", description: "Fresh lemonade" },
-            { name: "Fresh Lemonade Double", price: "KES 380", description: "Fresh lemonade" },
-          ]
-        },
-        {
-          name: "Mocktails",
-          items: [
-            { name: "Lemonade Classic", price: "KES 450", description: "Classic lemonade mocktail" },
-            { name: "Passion Mojito", price: "KES 450", description: "Passion fruit mojito mocktail" },
-            { name: "Strawberry Mojito", price: "KES 450", description: "Strawberry mojito mocktail" },
-            { name: "Kiwi Mojito", price: "KES 450", description: "Kiwi mojito mocktail" },
+            { name: "Single Chai Latte", price: "KES 250", description: "Semi sweet, spicy tea combined with steamed milk" },
+            { name: "Double Chai Latte", price: "KES 300", description: "Double semi sweet, spicy tea combined with steamed milk" },
+            { name: "Single Glass of Milk", price: "KES 200", description: "Fresh glass of milk" },
+            { name: "Double Glass of Milk", price: "KES 250", description: "Double fresh glass of milk" },
+            { name: "Lemon Tea", price: "KES 300", description: "Black tea with a hint of lemon juice" },
+            { name: "Classic Dawa / Turmeric / Cinnamon", price: "KES 300", description: "Traditional dawa with turmeric and cinnamon" },
+            { name: "Cold Chocolate", price: "KES 280", description: "Iced cubes, chocolate syrup and milk" },
+            { name: "Double Cold Chocolate", price: "KES 350", description: "Double iced cubes, chocolate syrup and milk" },
+            { name: "Iced Lemonade", price: "KES 220", description: "Ice cubes, mineral water and lemon juice" },
+            { name: "Double Iced Lemonade", price: "KES 300", description: "Double ice cubes, mineral water and lemon juice" },
+            { name: "Iced Lemon and Ginger (Dawa)", price: "KES 350", description: "Ice cubes, mineral water, ginger, and honey" },
+            { name: "Iced Flavoured Tea", price: "KES 350", description: "Ice cubes, mineral water and your choice of herbal tea" },
+            { name: "Strawberry Lemonade", price: "KES 450", description: "Fresh strawberries blended with ice cubes and lemon juice" },
+            { name: "Iced Hibiscus Tea", price: "KES 450", description: "Iced hibiscus tea" },
           ]
         },
         {
           name: "Smoothies",
           items: [
-            { name: "Banana Smoothie", price: "KES 450", description: "Banana, yoghurt, ice" },
-            { name: "Mango Smoothie", price: "KES 450", description: "Mango, yoghurt, ice" },
-            { name: "Avocado and Mango Smoothie", price: "KES 480", description: "Avocado, Mango, yoghurt, ice" },
-            { name: "Beetroot and Papaya", price: "KES 480", description: "Beetroot, papaya, yoghurt, ice" },
-            { name: "Pete's Smoothie", price: "KES 500", description: "Strawberry, Mango, Papaya and Yoghurt" },
-            { name: "Jumpstart", price: "KES 520", description: "Granola, fresh fruits, mint, honey and Yoghurt" },
-            { name: "Green Smoothie", price: "KES 480", description: "Cucumber, Apple Fruit, Ginger, Spinach, Lemon Juice and honey and Yoghurt" },
+            { name: "Single Banana Smoothie", price: "KES 250", description: "Banana, Yoghurt, ice" },
+            { name: "Double Banana Smoothie", price: "KES 400", description: "Double banana, Yoghurt, ice" },
+            { name: "Single Mango Smoothie", price: "KES 200", description: "Mango, Yoghurt, ice" },
+            { name: "Double Mango Smoothie", price: "KES 380", description: "Double mango, Yoghurt, ice" },
+            { name: "Single Avocado and Mango Smoothie", price: "KES 200", description: "Avocado, mango, Yoghurt, ice" },
+            { name: "Double Avocado and Mango Smoothie", price: "KES 380", description: "Double avocado, mango, Yoghurt, ice" },
+            { name: "Single Beetroot and Papaya", price: "KES 200", description: "Beetroot, papaya, Yoghurt, ice" },
+            { name: "Double Beetroot and Papaya", price: "KES 380", description: "Double beetroot, papaya, Yoghurt, ice" },
+            { name: "Single Pete's Smoothie", price: "KES 450", description: "Strawberry, Mango, Papaya and Yoghurt" },
+            { name: "Double Pete's Smoothie", price: "KES 500", description: "Double strawberry, Mango, Papaya and Yoghurt" },
+            { name: "Single Tropical", price: "KES 450", description: "Tropical smoothie" },
+            { name: "Double Tropical", price: "KES 500", description: "Double tropical smoothie" },
+            { name: "Single Pineapple and Mint Passion", price: "KES 450", description: "Pineapple and mint passion smoothie" },
+            { name: "Double Pineapple and Mint Passion", price: "KES 500", description: "Double pineapple and mint passion smoothie" },
+            { name: "Single Fresh Lemonade", price: "KES 450", description: "Fresh lemonade" },
+            { name: "Double Fresh Lemonade", price: "KES 500", description: "Double fresh lemonade" },
+            { name: "Single Mango Minty", price: "KES 450", description: "Mango minty smoothie" },
+            { name: "Double Mango Minty", price: "KES 500", description: "Double mango minty smoothie" },
+          ]
+        },
+        {
+          name: "Soft Drinks",
+          items: [
+            { name: "Sodas", price: "KES 180", description: "Various soft drinks" },
+            { name: "Diet Coke", price: "KES 200", description: "Diet coke" },
+            { name: "Mineral Water 500 ML", price: "KES 170", description: "500 ml mineral water" },
+            { name: "Mineral Water 1 LTR", price: "KES 250", description: "1 litre mineral water" },
+            { name: "Sparkling Water 500 ML", price: "KES 250", description: "500 ml sparkling water" },
+            { name: "Sparkling Water 1 LTR", price: "KES 350", description: "1 litre sparkling water" },
+          ]
+        },
+        {
+          name: "Mocktails",
+          items: [
+            { name: "Strawberry Mojito", price: "KES 450", description: "Strawberry mojito mocktail" },
+            { name: "Passion Mojito", price: "KES 450", description: "Passion fruit mojito mocktail" },
+            { name: "Kiwi Mojito", price: "KES 450", description: "Kiwi mojito mocktail" },
           ]
         },
         {
           name: "Shakes",
           items: [
             { name: "Fudge Shake", price: "KES 520", description: "Chocolate ice cream, brownies and milk" },
-            { name: "Mango Shake", price: "KES 490", description: "Mango ice cream, and milk" },
-            { name: "Chocolate Shake", price: "KES 490", description: "Chocolate, ice cream, and milk" },
-            { name: "Espresso Shake", price: "KES 490", description: "Espresso, vanilla ice cream, and milk" },
-            { name: "Mixed Fruit Shake", price: "KES 520", description: "Banana, mango, blueberry-cherries, beetroot, vanilla ice cream and milk" },
+            { name: "Vanilla Shake", price: "KES 450", description: "Vanilla ice cream and milk" },
+            { name: "Mango Shake", price: "KES 490", description: "Mango ice cream and milk" },
             { name: "Funky Nut Shake", price: "KES 520", description: "Vanilla ice cream, peanuts and milk" },
+            { name: "Chocolate Shake", price: "KES 490", description: "Chocolate ice cream and milk" },
             { name: "Blueberry Shake", price: "KES 520", description: "Blueberry ice cream and milk" },
+            { name: "Espresso Shake", price: "KES 490", description: "Espresso, vanilla ice cream and milk" },
             { name: "Mocha Shake", price: "KES 520", description: "Vanilla ice cream, chocolate, coffee granules and milk" },
+            { name: "Mixed Fruit Shake", price: "KES 520", description: "Banana, mango, blueberry-cherries, beetroot, vanilla ice cream and milk" },
             { name: "Strawberry Shake", price: "KES 490", description: "Strawberry ice cream and milk" },
             { name: "Banana Shake", price: "KES 490", description: "Banana, vanilla ice cream and milk" },
-            { name: "Vanilla Shake", price: "KES 490", description: "Vanilla ice cream and milk" },
-            { name: "Oreo Shake", price: "KES 520", description: "Oreo ice cream and milk" },
-          ]
-        },
-        {
-          name: "Soft Drinks",
-          items: [
-            { name: "Sodas", price: "KES 160", description: "Various soft drinks" },
-            { name: "Diet Coke", price: "KES 190", description: "Diet coke" },
-          ]
-        },
-        {
-          name: "Mineral Water",
-          items: [
-            { name: "Mineral Water 1 litre", price: "KES 270", description: "1 litre mineral water" },
-            { name: "Mineral Water 500 ml", price: "KES 180", description: "500 ml mineral water" },
-            { name: "Sparkling Water 500 ml", price: "KES 240", description: "500 ml sparkling water" },
-            { name: "Sparkling Water 1 litre", price: "KES 350", description: "1 litre sparkling water" },
           ]
         },
       ]
