@@ -1,17 +1,16 @@
-# Pete's Coffee Order Server
+# Pete's Coffee Notification Server
 
-This is a simple Express server that handles order storage and sharing across multiple machines for Pete's Coffee, using SQLite database and email notifications.
+This is a simple Express server that handles order notifications for Pete's Coffee, sending both email and WhatsApp messages when orders are placed.
 
 ## Features
 
-- ✅ Shared order storage across multiple machines
-- ✅ SQLite database for reliable data storage
-- ✅ Real-time order status updates
-- ✅ Automatic order archiving when delivered
-- ✅ Email notifications for new orders and status updates
-- ✅ Email logging and tracking
-- ✅ Backup and restore functionality
-- ✅ Fallback to localStorage when server is offline
+- ✅ Email notifications for new orders
+- ✅ WhatsApp notifications via Twilio
+- ✅ Professional email templates with Pete's Coffee branding
+- ✅ WhatsApp messages with formatted text
+- ✅ Service status monitoring
+- ✅ Test endpoints for both services
+- ✅ Simple setup and configuration
 
 ## Setup Instructions
 
@@ -30,7 +29,7 @@ Copy the example environment file and configure your settings:
 cp env.example .env
 ```
 
-Edit `.env` with your email settings:
+Edit `.env` with your notification settings:
 
 ```env
 # Email Configuration
@@ -41,12 +40,15 @@ EMAIL_PASS=your-app-password
 EMAIL_FROM=Pete's Coffee <your-email@gmail.com>
 EMAIL_TO=orders@petescoffee.com
 
+# WhatsApp/Twilio Configuration
+TWILIO_ACCOUNT_SID=your-twilio-account-sid
+TWILIO_AUTH_TOKEN=your-twilio-auth-token
+TWILIO_PHONE_NUMBER=whatsapp:+14155238886
+WHATSAPP_TO=whatsapp:+1234567890
+
 # Server Configuration
 PORT=3001
 NODE_ENV=development
-
-# Database Configuration
-DB_PATH=./data/orders.db
 ```
 
 #### Email Setup (Gmail Example)
@@ -58,15 +60,17 @@ DB_PATH=./data/orders.db
    - Generate a password for "Mail"
 3. **Use the app password** in your `.env` file (not your regular Gmail password)
 
-### 3. Initialize Database
+#### WhatsApp Setup (Twilio)
 
-```bash
-npm run init-db
-```
+1. **Create a Twilio Account** at [twilio.com](https://www.twilio.com)
+2. **Get your Account SID and Auth Token** from the Twilio Console
+3. **Set up WhatsApp Sandbox**:
+   - Go to Twilio Console → Messaging → Try it out → Send a WhatsApp message
+   - Follow the instructions to join the sandbox
+   - Use the provided number as `TWILIO_PHONE_NUMBER`
+4. **Add your phone number** to `WHATSAPP_TO` (format: `whatsapp:+1234567890`)
 
-This creates the SQLite database with the required tables.
-
-### 4. Start the Server
+### 3. Start the Server
 
 ```bash
 npm start
@@ -79,7 +83,7 @@ npm run dev
 
 The server will start on port 3001 by default.
 
-### 5. Configure the Frontend
+### 4. Configure the Frontend
 
 The frontend will automatically connect to `http://localhost:3001/api`. If you need to change the server URL, set the environment variable:
 
@@ -87,9 +91,9 @@ The frontend will automatically connect to `http://localhost:3001/api`. If you n
 REACT_APP_API_URL=http://your-server-ip:3001/api
 ```
 
-### 6. Network Setup (for multiple machines)
+### 5. Network Setup (for multiple machines)
 
-To share orders across multiple machines:
+To share notifications across multiple machines:
 
 1. **Find your computer's IP address:**
    - Windows: `ipconfig`
@@ -110,137 +114,114 @@ To share orders across multiple machines:
    ```
 
 5. **Access from other machines:**
-   - Other machines can now access the order system
-   - Orders will be shared in real-time
+   - Other machines can now submit orders
+   - Notifications will be sent to configured email and WhatsApp
 
 ## API Endpoints
 
 ### Orders
-- `GET /api/orders` - Get all active orders
-- `GET /api/orders/delivered` - Get all delivered orders
-- `POST /api/orders` - Create a new order
-- `PUT /api/orders/:id/status` - Update order status
-- `POST /api/orders/:id/restore` - Restore delivered order to active
+- `POST /api/orders` - Submit a new order (sends notifications)
 
-### Emails
-- `GET /api/emails` - Get email logs
-- `POST /api/emails/test` - Test email configuration
+### Testing
+- `POST /api/test/email` - Test email configuration
+- `POST /api/test/whatsapp` - Test WhatsApp configuration
 
 ### System
-- `GET /api/export` - Export all data (backup)
-- `POST /api/import` - Import data (restore)
-- `GET /api/health` - Health check
+- `GET /api/health` - Health check and service status
 
-## Database Schema
+## Notification Types
 
-### Orders Table
-```sql
-CREATE TABLE orders (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  customer_name TEXT NOT NULL,
-  customer_email TEXT NOT NULL,
-  items TEXT NOT NULL,
-  status TEXT DEFAULT 'pending',
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+### Email Notifications
+- **Professional HTML templates** with Pete's Coffee branding
+- **Order details** including customer info and items
+- **Action required** section for staff
+- **Text fallback** for email clients that don't support HTML
+
+### WhatsApp Notifications
+- **Formatted messages** with emojis and markdown
+- **Order summary** with customer details
+- **Itemized list** of ordered items
+- **Action reminder** for staff
+
+## Example Notifications
+
+### Email Template
+```
+Pete's Coffee - New Order Notification
+
+New Order Received!
+
+Order Details:
+- Customer: John Doe
+- Email: john@example.com
+- Order Time: 1/1/2024, 12:00:00 PM
+
+Order Items:
+• Cappuccino
+• Blueberry Muffin
+
+Action Required:
+Please prepare this order for the customer.
 ```
 
-### Delivered Orders Table
-```sql
-CREATE TABLE delivered_orders (
-  id INTEGER PRIMARY KEY,
-  customer_name TEXT NOT NULL,
-  customer_email TEXT NOT NULL,
-  items TEXT NOT NULL,
-  status TEXT DEFAULT 'delivered',
-  created_at DATETIME,
-  delivered_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+### WhatsApp Message
 ```
+🍵 Pete's Coffee - New Order
 
-### Email Logs Table
-```sql
-CREATE TABLE email_logs (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  order_id INTEGER NOT NULL,
-  email_type TEXT NOT NULL,
-  recipient TEXT NOT NULL,
-  sent_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  status TEXT DEFAULT 'sent',
-  error_message TEXT
-);
+👤 Customer: John Doe
+📧 Email: john@example.com
+⏰ Time: 1/1/2024, 12:00:00 PM
+
+📋 Order Items:
+• Cappuccino
+• Blueberry Muffin
+
+🚨 Action Required: Please prepare this order for the customer.
+
+---
+Pete's Coffee - Order Management System
 ```
-
-## Email Notifications
-
-The system sends the following emails:
-
-1. **Order Confirmation** - Sent to customer when order is placed
-2. **Staff Notification** - Sent to staff when new order is received
-3. **Status Updates** - Sent to customer when order status changes
-
-### Email Templates
-
-All emails use Pete's Coffee branding with:
-- Professional HTML and text versions
-- Order details and status information
-- Branded styling with Pete's Coffee colors
-
-## Data Storage
-
-Orders are stored in SQLite database:
-- `data/orders.db` - SQLite database file
-- Automatically created on first run
-- Includes indexes for better performance
 
 ## Troubleshooting
 
 ### Server won't start
 - Check if port 3001 is already in use
 - Try a different port: `PORT=3002 npm start`
-- Ensure database is initialized: `npm run init-db`
-
-### Database errors
-- Check if `data/` directory exists
-- Run `npm run init-db` to recreate database
-- Check file permissions on `data/orders.db`
 
 ### Email not working
 - Verify email credentials in `.env`
 - Check if 2FA is enabled and app password is used
-- Test email configuration: `POST /api/emails/test`
-- Check email logs: `GET /api/emails`
+- Test email configuration: `POST /api/test/email`
+- Check email spam folder
+
+### WhatsApp not working
+- Verify Twilio credentials in `.env`
+- Check if you've joined the Twilio WhatsApp sandbox
+- Test WhatsApp configuration: `POST /api/test/whatsapp`
+- Ensure phone numbers are in correct format (`whatsapp:+1234567890`)
 
 ### Can't connect from other machines
 - Check firewall settings
 - Verify IP address is correct
 - Ensure all machines are on the same network
 
-### Orders not syncing
+### Notifications not sending
 - Check browser console for connection errors
 - Verify server is running and accessible
 - Check network connectivity
 - Check health endpoint: `GET /api/health`
 
-## Fallback Mode
+## Testing
 
-If the server is unavailable, the frontend will automatically fall back to localStorage. This ensures the system continues to work even when the server is down.
-
-## Backup and Restore
-
-You can export all data for backup:
+### Test Email
 ```bash
-curl http://localhost:3001/api/export > backup.json
+curl -X POST http://localhost:3001/api/test/email
 ```
 
-The export includes:
-- Active orders
-- Delivered orders
-- Email logs
-- Export timestamp
-
-## Monitoring
+### Test WhatsApp
+```bash
+curl -X POST http://localhost:3001/api/test/whatsapp
+```
 
 ### Health Check
 ```bash
@@ -252,21 +233,38 @@ Returns:
 {
   "status": "OK",
   "timestamp": "2024-01-01T12:00:00.000Z",
-  "database": "connected",
-  "email": "configured"
+  "services": {
+    "email": "configured",
+    "whatsapp": "configured"
+  }
 }
 ```
-
-### Email Logs
-```bash
-curl http://localhost:3001/api/emails
-```
-
-Shows all sent emails with status and error messages.
 
 ## Security Notes
 
 - Keep your `.env` file secure and never commit it to version control
 - Use app passwords for email, not regular passwords
+- Keep Twilio credentials secure
 - Consider using HTTPS in production
-- Regularly backup the SQLite database file
+- Regularly rotate API keys and passwords
+
+## Cost Considerations
+
+### Email
+- **Gmail**: Free (with app password setup)
+- **Other providers**: Check their pricing
+
+### WhatsApp (Twilio)
+- **Sandbox**: Free for testing (limited messages)
+- **Production**: Pay-per-message pricing
+- **Check Twilio pricing** for your region and volume
+
+## Production Deployment
+
+For production use:
+
+1. **Use a production Twilio account** (not sandbox)
+2. **Set up proper domain** for email sending
+3. **Use HTTPS** for secure communication
+4. **Monitor notification delivery** and costs
+5. **Set up proper error handling** and logging
