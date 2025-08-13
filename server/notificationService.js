@@ -12,20 +12,28 @@ class NotificationService {
   initializeServices() {
     // Initialize Email Service
     const emailConfig = {
-      host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+      host: process.env.EMAIL_HOST,
       port: parseInt(process.env.EMAIL_PORT) || 587,
-      secure: false,
+      secure: process.env.EMAIL_SECURE === 'true' || false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
       }
     };
 
-    if (emailConfig.auth.user && emailConfig.auth.pass) {
+    // Add TLS options for better compatibility
+    if (emailConfig.port === 587) {
+      emailConfig.requireTLS = true;
+      emailConfig.ignoreTLS = false;
+    }
+
+    if (emailConfig.auth.user && emailConfig.auth.pass && emailConfig.host) {
       this.emailTransporter = nodemailer.createTransport(emailConfig);
       console.log('✅ Email service initialized');
+      console.log(`📧 Email host: ${emailConfig.host}:${emailConfig.port}`);
     } else {
       console.warn('⚠️ Email credentials not configured. Email notifications will be disabled.');
+      console.log('Required: EMAIL_HOST, EMAIL_USER, EMAIL_PASS');
     }
 
     // Initialize Twilio/WhatsApp Service

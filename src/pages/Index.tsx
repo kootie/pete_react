@@ -5,6 +5,10 @@ import VenueHighlights from "@/components/VenueHighlights";
 import Testimonials from "@/components/Testimonials";
 // import WhatsOn from "@/components/WhatsOn";
 import GiftCards from "@/components/GiftCards";
+import PetesDelivers from "@/components/PetesDelivers";
+import NewMenuPrices from "@/components/NewMenuPrices";
+import PetesMerchandise from "@/components/PetesMerchandise";
+import PetesFranchise from "@/components/PetesFranchise";
 import Footer from "@/components/Footer";
 
 const services = [
@@ -103,6 +107,10 @@ const Index = () => {
           </div>
         </div>
       </section>
+      <PetesDelivers />
+      <NewMenuPrices />
+      <PetesMerchandise />
+      <PetesFranchise />
       <VenueHighlights />
       <Testimonials />
       <GiftCards />

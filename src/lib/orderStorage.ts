@@ -8,6 +8,8 @@ export interface Order {
   items: string[];
   time: string;
   status?: string;
+  deliveredAt?: string;
+  updatedAt?: string;
 }
 
 export interface NotificationResult {
@@ -29,14 +31,14 @@ class OrderStorage {
       const response = await fetch(`${this.apiBaseUrl}/health`);
       if (response.ok) {
         this.isOnline = true;
-        console.log('✅ Connected to notification server');
+        console.log('✅ Connected to order server');
       } else {
         this.isOnline = false;
         console.warn('⚠️ Server health check failed');
       }
     } catch (error) {
       this.isOnline = false;
-      console.warn('⚠️ Cannot connect to notification server, using local storage only');
+      console.warn('⚠️ Cannot connect to order server, using local storage only');
     }
   }
 
@@ -61,7 +63,43 @@ class OrderStorage {
     }
   }
 
-  // Submit a new order and send notifications
+  // Get all active orders
+  public async getOrders(): Promise<Order[]> {
+    try {
+      if (this.isOnline) {
+        return await this.makeRequest('/orders');
+      } else {
+        // Fallback to localStorage
+        const orders = JSON.parse(localStorage.getItem("petes_orders") || "[]");
+        return orders.sort((a: Order, b: Order) => new Date(b.time).getTime() - new Date(a.time).getTime());
+      }
+    } catch (error) {
+      console.error('Error getting orders:', error);
+      // Fallback to localStorage
+      const orders = JSON.parse(localStorage.getItem("petes_orders") || "[]");
+      return orders.sort((a: Order, b: Order) => new Date(b.time).getTime() - new Date(a.time).getTime());
+    }
+  }
+
+  // Get all delivered orders
+  public async getDeliveredOrders(): Promise<Order[]> {
+    try {
+      if (this.isOnline) {
+        return await this.makeRequest('/orders/delivered');
+      } else {
+        // Fallback to localStorage
+        const orders = JSON.parse(localStorage.getItem("petes_delivered_orders") || "[]");
+        return orders.sort((a: Order, b: Order) => new Date(b.time).getTime() - new Date(a.time).getTime());
+      }
+    } catch (error) {
+      console.error('Error getting delivered orders:', error);
+      // Fallback to localStorage
+      const orders = JSON.parse(localStorage.getItem("petes_delivered_orders") || "[]");
+      return orders.sort((a: Order, b: Order) => new Date(b.time).getTime() - new Date(a.time).getTime());
+    }
+  }
+
+  // Submit a new order (saves to server and sends notifications)
   public async submitOrder(order: Omit<Order, 'id' | 'time'>): Promise<{ order: Order; notifications: NotificationResult }> {
     try {
       if (this.isOnline) {
@@ -117,6 +155,43 @@ class OrderStorage {
     }
   }
 
+  // Update order status
+  public async updateOrderStatus(orderId: number, status: string): Promise<void> {
+    try {
+      if (this.isOnline) {
+        await this.makeRequest(`/orders/${orderId}/status`, {
+          method: 'PUT',
+          body: JSON.stringify({ status }),
+        });
+      } else {
+        // Fallback to localStorage
+        this.updateLocalOrderStatus(orderId, status);
+      }
+    } catch (error) {
+      console.error('Error updating order status:', error);
+      // Fallback to localStorage
+      this.updateLocalOrderStatus(orderId, status);
+    }
+  }
+
+  // Restore delivered order to active
+  public async restoreOrder(orderId: number): Promise<void> {
+    try {
+      if (this.isOnline) {
+        await this.makeRequest(`/orders/${orderId}/restore`, {
+          method: 'POST',
+        });
+      } else {
+        // Fallback to localStorage
+        this.restoreLocalOrder(orderId);
+      }
+    } catch (error) {
+      console.error('Error restoring order:', error);
+      // Fallback to localStorage
+      this.restoreLocalOrder(orderId);
+    }
+  }
+
   // Get orders from localStorage (for display purposes)
   public getLocalOrders(): Order[] {
     try {
@@ -135,22 +210,59 @@ class OrderStorage {
       const orderIndex = orders.findIndex(order => order.id === orderId);
       
       if (orderIndex !== -1) {
-        orders[orderIndex].status = status;
-        localStorage.setItem("petes_orders", JSON.stringify(orders));
+        if (status === 'delivered') {
+          // Move to delivered orders
+          const order = orders[orderIndex];
+          const deliveredOrder = {
+            ...order,
+            status: 'delivered',
+            deliveredAt: new Date().toISOString()
+          };
+          
+          const deliveredOrders = JSON.parse(localStorage.getItem("petes_delivered_orders") || "[]");
+          deliveredOrders.unshift(deliveredOrder);
+          localStorage.setItem("petes_delivered_orders", JSON.stringify(deliveredOrders));
+          
+          // Remove from active orders
+          orders.splice(orderIndex, 1);
+          localStorage.setItem("petes_orders", JSON.stringify(orders));
+        } else {
+          // Update status in active orders
+          orders[orderIndex].status = status;
+          orders[orderIndex].updatedAt = new Date().toISOString();
+          localStorage.setItem("petes_orders", JSON.stringify(orders));
+        }
       }
     } catch (error) {
       console.error('Error updating local order status:', error);
     }
   }
 
-  // Remove order from local storage
-  public removeLocalOrder(orderId: number): void {
+  // Restore delivered order locally
+  public restoreLocalOrder(orderId: number): void {
     try {
-      const orders = this.getLocalOrders();
-      const filteredOrders = orders.filter(order => order.id !== orderId);
-      localStorage.setItem("petes_orders", JSON.stringify(filteredOrders));
+      const deliveredOrders = JSON.parse(localStorage.getItem("petes_delivered_orders") || "[]");
+      const orderIndex = deliveredOrders.findIndex((order: Order) => order.id === orderId);
+      
+      if (orderIndex !== -1) {
+        const order = deliveredOrders[orderIndex];
+        const restoredOrder = {
+          ...order,
+          status: 'pending',
+          deliveredAt: undefined,
+          updatedAt: new Date().toISOString()
+        };
+        
+        const orders = this.getLocalOrders();
+        orders.unshift(restoredOrder);
+        localStorage.setItem("petes_orders", JSON.stringify(orders));
+        
+        // Remove from delivered orders
+        deliveredOrders.splice(orderIndex, 1);
+        localStorage.setItem("petes_delivered_orders", JSON.stringify(deliveredOrders));
+      }
     } catch (error) {
-      console.error('Error removing local order:', error);
+      console.error('Error restoring local order:', error);
     }
   }
 
@@ -183,20 +295,22 @@ class OrderStorage {
   }
 
   // Check server status
-  public async getServerStatus(): Promise<{ status: string; services: { email: string; whatsapp: string } }> {
+  public async getServerStatus(): Promise<{ status: string; services: { email: string; whatsapp: string }; storage: string }> {
     try {
       if (this.isOnline) {
         return await this.makeRequest('/health');
       } else {
         return {
           status: 'OFFLINE',
-          services: { email: 'unknown', whatsapp: 'unknown' }
+          services: { email: 'unknown', whatsapp: 'unknown' },
+          storage: 'local'
         };
       }
     } catch (error) {
       return {
         status: 'ERROR',
-        services: { email: 'unknown', whatsapp: 'unknown' }
+        services: { email: 'unknown', whatsapp: 'unknown' },
+        storage: 'local'
       };
     }
   }
