@@ -1,0 +1,23 @@
+{
+  "name": "Pete's Coffee - Premium Coffee Experience",
+  "short_name": "Pete's Coffee",
+  "description": "Premium coffee experience at The Curve, Westlands. Experience premium coffee, delicious pastries, and warm hospitality.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8B4513",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/petesfull.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
