@@ -10,7 +10,7 @@ const Merchandise = () => {
     {
       icon: <Shield className="h-6 w-6" />,
       title: "Quality Guarantee",
-      description: "30-day return policy on all items"
+      description: "Premium quality products guaranteed"
     },
     {
       icon: <Heart className="h-6 w-6" />,
