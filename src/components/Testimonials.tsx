@@ -12,7 +12,7 @@ const Testimonials = () => {
     {
       name: "Michael Chen",
       role: "Coffee Enthusiast",
-      content: "Best coffee in Nairobi! The baristas really know their craft. I love the cozy vibe at Bishop Magua - perfect for weekend mornings.",
+      content: "Best coffee in Nairobi! The baristas really know their craft. I love the atmosphere at The Curve - perfect for weekend mornings.",
       rating: 5,
     },
     {

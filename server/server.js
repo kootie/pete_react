@@ -4,14 +4,12 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const NotificationService = require('./notificationService');
-const OrderStorage = require('./orderStorage');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Initialize services
 const notificationService = new NotificationService();
-const orderStorage = new OrderStorage();
 
 // Middleware
 app.use(cors());
@@ -19,29 +17,7 @@ app.use(bodyParser.json());
 
 // Routes
 
-// Get all active orders
-app.get('/api/orders', async (req, res) => {
-  try {
-    const orders = orderStorage.getOrders();
-    res.json(orders);
-  } catch (error) {
-    console.error('Error fetching orders:', error);
-    res.status(500).json({ error: 'Failed to fetch orders' });
-  }
-});
-
-// Get all delivered orders
-app.get('/api/orders/delivered', async (req, res) => {
-  try {
-    const orders = orderStorage.getDeliveredOrders();
-    res.json(orders);
-  } catch (error) {
-    console.error('Error fetching delivered orders:', error);
-    res.status(500).json({ error: 'Failed to fetch delivered orders' });
-  }
-});
-
-// Submit a new order (saves to server and sends notifications)
+// Submit a new order (sends email notification)
 app.post('/api/orders', async (req, res) => {
   try {
     const { name, email, items } = req.body;
@@ -50,65 +26,36 @@ app.post('/api/orders', async (req, res) => {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Save order to server
-    const newOrder = orderStorage.addOrder({ name, email, items });
+    // Create order object for email
+    const order = {
+      name,
+      email,
+      items,
+      timestamp: new Date().toISOString(),
+      id: Date.now() // Simple ID for reference
+    };
 
-    // Send notifications (email and WhatsApp)
-    const notificationResults = await notificationService.sendOrderNotification(newOrder);
+    // Send email notification
+    const emailResult = await notificationService.sendEmailNotification(order);
     
-    res.status(201).json({
-      message: 'Order submitted successfully',
-      order: newOrder,
-      notifications: notificationResults
-    });
+    if (emailResult.success) {
+      res.status(201).json({
+        message: 'Order submitted successfully! We will contact you shortly.',
+        orderId: order.id
+      });
+    } else {
+      res.status(500).json({
+        error: 'Failed to submit order. Please try again or contact us directly.',
+        details: emailResult.error || emailResult.message
+      });
+    }
   } catch (error) {
     console.error('Error processing order:', error);
     res.status(500).json({ error: 'Failed to process order' });
   }
 });
 
-// Update order status
-app.put('/api/orders/:id/status', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { status } = req.body;
-    
-    if (!status) {
-      return res.status(400).json({ error: 'Status is required' });
-    }
 
-    const result = orderStorage.updateOrderStatus(parseInt(id), status);
-    res.json(result);
-  } catch (error) {
-    console.error('Error updating order status:', error);
-    res.status(500).json({ error: 'Failed to update order' });
-  }
-});
-
-// Restore delivered order to active
-app.post('/api/orders/:id/restore', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const result = orderStorage.restoreOrder(parseInt(id));
-    res.json(result);
-  } catch (error) {
-    console.error('Error restoring order:', error);
-    res.status(500).json({ error: 'Failed to restore order' });
-  }
-});
-
-// Export all data
-app.get('/api/export', async (req, res) => {
-  try {
-    const data = orderStorage.exportData();
-    res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Content-Disposition', 'attachment; filename=orders_backup.json');
-    res.json(data);
-  } catch (error) {
-    console.error('Error exporting data:', error);
-    res.status(500).json({ error: 'Failed to export data' });
-  }
-});
 
 // Test email configuration
 app.post('/api/test/email', async (req, res) => {
@@ -132,6 +79,47 @@ app.post('/api/test/whatsapp', async (req, res) => {
   }
 });
 
+// Submit franchise inquiry
+app.post('/api/franchise-inquiry', async (req, res) => {
+  try {
+    const { name, email, phone, location, experience, investment, details } = req.body;
+    
+    if (!name || !email) {
+      return res.status(400).json({ error: 'Name and email are required fields' });
+    }
+
+    const inquiry = {
+      name,
+      email,
+      phone,
+      location,
+      experience,
+      investment,
+      details,
+      timestamp: new Date().toISOString()
+    };
+
+    // Send franchise inquiry email
+    const result = await notificationService.sendFranchiseInquiryNotification(inquiry);
+    
+    if (result.success) {
+      res.status(201).json({
+        message: 'Franchise inquiry submitted successfully',
+        inquiry,
+        notification: result
+      });
+    } else {
+      res.status(500).json({
+        error: 'Failed to send franchise inquiry email',
+        details: result.error || result.message
+      });
+    }
+  } catch (error) {
+    console.error('Error processing franchise inquiry:', error);
+    res.status(500).json({ error: 'Failed to process franchise inquiry' });
+  }
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   const serviceStatus = notificationService.getServiceStatus();
@@ -140,7 +128,7 @@ app.get('/api/health', (req, res) => {
     status: 'OK', 
     timestamp: new Date().toISOString(),
     services: serviceStatus,
-    storage: 'file-based'
+    storage: 'email-only'
   });
 });
 
@@ -149,6 +137,6 @@ app.listen(PORT, () => {
   console.log(`✅ Pete's Coffee Order Server running on port ${PORT}`);
   console.log(`📧 Email service: ${notificationService.emailTransporter ? 'Configured' : 'Not configured'}`);
   console.log(`📱 WhatsApp service: ${notificationService.twilioClient ? 'Configured' : 'Not configured'}`);
-  console.log(`💾 Order storage: File-based (data/orders.json)`);
+  console.log(`📧 Orders sent to: info@petescoffee.co.ke`);
   console.log(`🌐 Health check: http://localhost:${PORT}/api/health`);
 });

@@ -15,7 +15,7 @@ const Delivery = () => {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Delivery Areas",
-      details: "Dublin City Centre and surrounding areas"
+      details: "Nairobi and environs"
     },
     {
       icon: <Phone className="h-6 w-6" />,

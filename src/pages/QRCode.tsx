@@ -133,7 +133,7 @@ const QRCode = () => {
                   </div>
                   <div class="footer">
                     <strong>Pete's Coffee</strong><br>
-                    The Curve • Bishop Magua<br>
+                    The Curve<br>
                     info@petescoffee.co.ke
                   </div>
                 </div>
@@ -254,7 +254,7 @@ const QRCode = () => {
           {/* Footer Info */}
           <div className="text-center mt-8 text-gray-600">
             <p className="font-semibold text-pete-brown">Pete's Coffee</p>
-            <p>The Curve • Bishop Magua</p>
+            <p>The Curve</p>
             <p>info@petescoffee.co.ke</p>
           </div>
         </div>

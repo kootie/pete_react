@@ -10,13 +10,6 @@ const VenueHighlights = () => {
       features: ["Spacious Seating", "Wi-Fi Available", "Meeting Rooms", "Outdoor Terrace"],
       description: "Our flagship location offering a premium coffee experience in the heart of Westlands.",
     },
-    {
-      name: "Bishop Magua",
-      location: "Ngong Road, Nairobi",
-      image: "/location/magua.jpg",
-      features: ["Cozy Atmosphere", "Quick Service", "Takeaway Options", "Fresh Pastries"],
-      description: "A warm, intimate setting perfect for your daily coffee ritual and casual meetings.",
-    },
   ];
 
   return (

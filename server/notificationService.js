@@ -40,11 +40,20 @@ class NotificationService {
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
 
-    if (accountSid && authToken) {
-      this.twilioClient = twilio(accountSid, authToken);
-      console.log('✅ WhatsApp service initialized');
+    if (accountSid && authToken && 
+        accountSid !== 'your-twilio-account-sid' && 
+        authToken !== 'your-twilio-auth-token' &&
+        accountSid.startsWith('AC')) {
+      try {
+        this.twilioClient = twilio(accountSid, authToken);
+        console.log('✅ WhatsApp service initialized');
+      } catch (error) {
+        console.warn('⚠️ Failed to initialize Twilio:', error.message);
+        this.twilioClient = null;
+      }
     } else {
       console.warn('⚠️ Twilio credentials not configured. WhatsApp notifications will be disabled.');
+      console.log('Required: TWILIO_ACCOUNT_SID (starting with AC), TWILIO_AUTH_TOKEN');
     }
   }
 
@@ -60,7 +69,7 @@ class NotificationService {
       
       const mailOptions = {
         from: process.env.EMAIL_FROM || 'Pete\'s Coffee <noreply@petescoffee.com>',
-        to: process.env.EMAIL_TO || 'orders@petescoffee.com',
+        to: 'info@petescoffee.co.ke',
         subject: `New Order Received - ${order.name}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -158,6 +167,97 @@ Pete's Coffee - Order Management System`;
       return { success: true, messageId: result.sid };
     } catch (error) {
       console.error('❌ Error sending WhatsApp notification:', error);
+      return { success: false, error: error.message };
+    }
+  }
+
+  // Send franchise inquiry notification via email
+  async sendFranchiseInquiryNotification(inquiry) {
+    if (!this.emailTransporter) {
+      console.log('Email service not configured, skipping franchise inquiry email');
+      return { success: false, message: 'Email service not configured' };
+    }
+
+    try {
+      const mailOptions = {
+        from: process.env.EMAIL_FROM || 'Pete\'s Coffee <noreply@petescoffee.com>',
+        to: 'franchise@petescoffee.co.ke',
+        subject: `New Franchise Inquiry - ${inquiry.name}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="background-color: #3A2D07; color: white; padding: 20px; text-align: center;">
+              <h1 style="margin: 0; color: #FFCF01;">Pete's Coffee</h1>
+              <p style="margin: 10px 0 0 0; color: #00A28F;">Franchise Inquiry</p>
+            </div>
+            
+            <div style="padding: 20px; background-color: #f9f9f9;">
+              <h2 style="color: #3A2D07;">New Franchise Inquiry Received!</h2>
+              
+              <div style="background-color: white; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <h3 style="color: #3A2D07; margin-top: 0;">Contact Information:</h3>
+                <p><strong>Name:</strong> ${inquiry.name}</p>
+                <p><strong>Email:</strong> ${inquiry.email}</p>
+                ${inquiry.phone ? `<p><strong>Phone:</strong> ${inquiry.phone}</p>` : ''}
+                <p><strong>Inquiry Date:</strong> ${new Date().toLocaleString()}</p>
+              </div>
+              
+              <div style="background-color: white; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <h3 style="color: #3A2D07; margin-top: 0;">Franchise Details:</h3>
+                ${inquiry.location ? `<p><strong>Preferred Location:</strong> ${inquiry.location}</p>` : ''}
+                ${inquiry.experience ? `<p><strong>Business Experience:</strong> ${inquiry.experience}</p>` : ''}
+                ${inquiry.investment ? `<p><strong>Investment Budget:</strong> ${inquiry.investment}</p>` : ''}
+              </div>
+              
+              ${inquiry.details ? `
+              <div style="background-color: white; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <h3 style="color: #3A2D07; margin-top: 0;">Additional Details:</h3>
+                <p style="white-space: pre-wrap;">${inquiry.details}</p>
+              </div>
+              ` : ''}
+              
+              <div style="background-color: #FFCF01; color: #3A2D07; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <h3 style="margin-top: 0;">Action Required</h3>
+                <p>Please follow up with this franchise inquiry within 48 hours.</p>
+                <p>Reply to: ${inquiry.email}</p>
+              </div>
+            </div>
+            
+            <div style="background-color: #3A2D07; color: white; padding: 20px; text-align: center; font-size: 12px;">
+              <p>Pete's Coffee - Franchise Management System</p>
+            </div>
+          </div>
+        `,
+        text: `
+          Pete's Coffee - New Franchise Inquiry
+          
+          New Franchise Inquiry Received!
+          
+          Contact Information:
+          - Name: ${inquiry.name}
+          - Email: ${inquiry.email}
+          ${inquiry.phone ? `- Phone: ${inquiry.phone}` : ''}
+          - Inquiry Date: ${new Date().toLocaleString()}
+          
+          Franchise Details:
+          ${inquiry.location ? `- Preferred Location: ${inquiry.location}` : ''}
+          ${inquiry.experience ? `- Business Experience: ${inquiry.experience}` : ''}
+          ${inquiry.investment ? `- Investment Budget: ${inquiry.investment}` : ''}
+          
+          ${inquiry.details ? `Additional Details:\n${inquiry.details}\n` : ''}
+          
+          Action Required:
+          Please follow up with this franchise inquiry within 48 hours.
+          Reply to: ${inquiry.email}
+          
+          Pete's Coffee - Franchise Management System
+        `
+      };
+
+      const result = await this.emailTransporter.sendMail(mailOptions);
+      console.log('✅ Franchise inquiry email sent to: franchise@petescoffee.co.ke');
+      return { success: true, messageId: result.messageId };
+    } catch (error) {
+      console.error('❌ Error sending franchise inquiry email:', error);
       return { success: false, error: error.message };
     }
   }

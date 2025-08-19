@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Star, Truck, Heart } from "lucide-react";
+import { ShoppingCart, Star, Heart } from "lucide-react";
 
 const PetesMerchandise = () => {
   const merchandiseCategories = [
@@ -9,16 +9,16 @@ const PetesMerchandise = () => {
       items: [
         {
           name: "Pete's Insulated Travel Mug",
-          price: "€24.99",
-          image: "☕",
+          price: "KES 2,500",
+          image: "/merchandise/merch3.jpg",
           description: "Keep your coffee hot for hours with our premium insulated travel mug",
           featured: true,
           rating: 4.8
         },
         {
           name: "Classic Pete's Mug",
-          price: "€18.99",
-          image: "🫖",
+          price: "KES 2,500",
+          image: "/merchandise/merch4.jpg",
           description: "Traditional ceramic travel mug with Pete's branding",
           featured: false,
           rating: 4.6
@@ -30,7 +30,7 @@ const PetesMerchandise = () => {
       items: [
         {
           name: "Pete's Coffee T-Shirt",
-          price: "€29.99",
+          price: "KES 1,400",
           image: "👕",
           description: "Comfortable cotton t-shirt with Pete's Coffee logo",
           featured: true,
@@ -38,7 +38,7 @@ const PetesMerchandise = () => {
         },
         {
           name: "Pete's Hoodie",
-          price: "€49.99",
+          price: "KES 2,500",
           image: "🧥",
           description: "Warm and cozy hoodie perfect for coffee lovers",
           featured: true,
@@ -51,16 +51,16 @@ const PetesMerchandise = () => {
       items: [
         {
           name: "Ceramic Coffee Mug",
-          price: "€14.99",
-          image: "☕",
+          price: "KES 2,500",
+          image: "/merchandise/merch5.jpg",
           description: "Classic ceramic mug with Pete's signature design",
           featured: false,
           rating: 4.5
         },
         {
           name: "Premium Stoneware Mug",
-          price: "€19.99",
-          image: "🫖",
+          price: "KES 2,500",
+          image: "/merchandise/merch6.jpg",
           description: "High-quality stoneware mug for the perfect coffee experience",
           featured: false,
           rating: 4.7
@@ -72,40 +72,19 @@ const PetesMerchandise = () => {
       items: [
         {
           name: "Pete's Pour-Over Kit",
-          price: "€89.99",
-          image: "☕",
+          price: "KES 2,500",
+          image: "/merchandise/merch3.jpg",
           description: "Complete pour-over coffee brewing kit with Pete's beans",
           featured: true,
           rating: 4.9
         },
         {
           name: "French Press",
-          price: "€34.99",
-          image: "🫖",
+          price: "KES 2,500",
+          image: "/merchandise/merch4.jpg",
           description: "Classic French press for rich, full-bodied coffee",
           featured: false,
           rating: 4.6
-        }
-      ]
-    },
-    {
-      title: "Roasted Coffee",
-      items: [
-        {
-          name: "Pete's Signature Blend",
-          price: "€12.99",
-          image: "🫘",
-          description: "Our signature coffee blend, freshly roasted",
-          featured: true,
-          rating: 4.9
-        },
-        {
-          name: "Single Origin Ethiopia",
-          price: "€15.99",
-          image: "🫘",
-          description: "Premium single origin coffee from Ethiopia",
-          featured: false,
-          rating: 4.8
         }
       ]
     }
@@ -137,7 +116,17 @@ const PetesMerchandise = () => {
                 {category.items.map((item) => (
                   <div key={item.name} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
                     <div className="flex items-start justify-between mb-4">
-                      <div className="text-4xl">{item.image}</div>
+                      <div className="w-20 h-20 rounded-lg overflow-hidden flex items-center justify-center">
+                        {item.image.startsWith('/') ? (
+                          <img 
+                            src={item.image} 
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="text-4xl">{item.image}</div>
+                        )}
+                      </div>
                       {item.featured && (
                         <Badge className="bg-pete-yellow text-pete-brown">
                           Featured
@@ -171,14 +160,7 @@ const PetesMerchandise = () => {
 
         {/* Benefits Section */}
         <div className="mt-20 bg-pete-brown/5 rounded-xl p-8">
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-pete-brown rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="h-8 w-8 text-pete-yellow" />
-              </div>
-              <h4 className="text-lg font-bold text-pete-brown mb-2">Free Shipping</h4>
-              <p className="text-gray-600">Free shipping on orders over €50</p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="w-16 h-16 bg-pete-brown rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="h-8 w-8 text-pete-yellow" />

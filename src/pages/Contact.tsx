@@ -10,13 +10,6 @@ const locations = [
     description: "Located at The Curve, offering a cozy atmosphere and great views.",
     hours: "Mon-Sun: 7:00 AM - 10:00 PM",
     map: "https://www.google.com/maps?q=The+Curve+Nairobi&output=embed"
-  },
-  {
-    name: "Bishop Magua",
-    address: "Ngong Road, Nairobi",
-    description: "Find us at Bishop Magua, the perfect spot for coffee lovers in the city.",
-    hours: "Mon-Sun: 8:00 AM - 6:00 PM",
-    map: "https://www.google.com/maps?q=Bishop+Magua+Nairobi&output=embed"
   }
 ];
 

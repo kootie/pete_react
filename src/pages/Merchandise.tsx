@@ -3,15 +3,10 @@ import PetesMerchandise from "@/components/PetesMerchandise";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingBag, Truck, Shield, Heart } from "lucide-react";
+import { ShoppingBag, Shield, Heart } from "lucide-react";
 
 const Merchandise = () => {
   const shopFeatures = [
-    {
-      icon: <Truck className="h-6 w-6" />,
-      title: "Free Shipping",
-      description: "Free shipping on orders over €50"
-    },
     {
       icon: <Shield className="h-6 w-6" />,
       title: "Quality Guarantee",
@@ -64,7 +59,7 @@ const Merchandise = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {shopFeatures.map((feature) => (
               <div key={feature.title} className="bg-white rounded-xl p-6 text-center shadow-sm">
                 <div className="w-16 h-16 bg-pete-brown rounded-full flex items-center justify-center mx-auto mb-4">
@@ -76,28 +71,6 @@ const Merchandise = () => {
                 <p className="text-gray-600">{feature.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-20 bg-pete-brown text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter for exclusive offers, new product launches, and coffee tips!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg text-pete-brown placeholder-gray-500"
-            />
-            <Button 
-              className="bg-pete-yellow text-pete-brown hover:bg-pete-yellow/90 font-semibold px-6 py-3"
-            >
-              Subscribe
-            </Button>
           </div>
         </div>
       </section>

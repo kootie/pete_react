@@ -17,7 +17,7 @@ const WhatsOn = () => {
       title: "Latte Art Workshop",
       date: "Monthly",
       description: "Learn the art of creating beautiful latte designs with our professional team.",
-      location: "Bishop Magua",
+      location: "The Curve",
       time: "2:00 PM - 4:00 PM",
     },
     {

@@ -43,11 +43,6 @@ const Footer = () => {
                 <p className="text-gray-300 text-sm">Westlands, Nairobi</p>
                 <p className="text-gray-300 text-sm">Mon-Sun: 6:30 AM - 10:00 PM</p>
               </div>
-              <div>
-                <h4 className="font-semibold text-white mb-1">Bishop Magua</h4>
-                <p className="text-gray-300 text-sm">Ngong Road, Nairobi</p>
-                <p className="text-gray-300 text-sm">Mon-Sun: 7:00 AM - 9:00 PM</p>
-              </div>
             </div>
           </div>
 

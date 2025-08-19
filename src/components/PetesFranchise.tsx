@@ -27,9 +27,6 @@ const PetesFranchise = () => {
   ];
 
   const franchiseRequirements = [
-    "Minimum investment: €150,000",
-    "Liquid capital: €50,000",
-    "Net worth: €300,000",
     "Passion for coffee and customer service",
     "Business experience preferred",
     "Commitment to Pete's values and standards"
@@ -169,31 +166,24 @@ const PetesFranchise = () => {
           <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
             <div className="flex items-center justify-center">
               <Phone className="h-5 w-5 text-pete-yellow mr-2" />
-              <span className="text-gray-300">+1 (555) 123-4567</span>
+              <span className="text-gray-300">+254 020 217 7453</span>
             </div>
             <div className="flex items-center justify-center">
               <Mail className="h-5 w-5 text-pete-yellow mr-2" />
-              <span className="text-gray-300">franchise@petescoffee.com</span>
+              <span className="text-gray-300">franchise@petescoffee.co.ke</span>
             </div>
             <div className="flex items-center justify-center">
               <MapPin className="h-5 w-5 text-pete-yellow mr-2" />
-              <span className="text-gray-300">Dublin, Ireland</span>
+              <span className="text-gray-300">Nairobi, Kenya</span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button 
               size="lg"
               className="bg-pete-yellow text-pete-brown hover:bg-pete-yellow/90 font-semibold px-8 py-3"
             >
               Request Franchise Info
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-pete-yellow text-pete-yellow hover:bg-pete-yellow hover:text-pete-brown font-semibold px-8 py-3"
-            >
-              Download Brochure
             </Button>
           </div>
         </div>
