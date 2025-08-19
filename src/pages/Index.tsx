@@ -6,7 +6,7 @@ import Testimonials from "@/components/Testimonials";
 // import WhatsOn from "@/components/WhatsOn";
 import GiftCards from "@/components/GiftCards";
 import PetesDelivers from "@/components/PetesDelivers";
-import NewMenuPrices from "@/components/NewMenuPrices";
+
 import PetesMerchandise from "@/components/PetesMerchandise";
 import PetesFranchise from "@/components/PetesFranchise";
 import Footer from "@/components/Footer";
@@ -108,7 +108,24 @@ const Index = () => {
         </div>
       </section>
       <PetesDelivers />
-      <NewMenuPrices />
+      
+      {/* Menu Link Section */}
+      <section className="py-16 bg-pete-brown/5">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-pete-brown mb-4">
+            Explore Our Menu
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+            Discover our selection of premium coffee, delicious food, and specialty drinks
+          </p>
+          <a href="/menu">
+            <button className="bg-pete-brown text-white hover:bg-pete-brown/90 font-semibold px-8 py-3 rounded-lg text-lg transition-colors">
+              View Full Menu
+            </button>
+          </a>
+        </div>
+      </section>
+
       <PetesMerchandise />
       <PetesFranchise />
       <VenueHighlights />
